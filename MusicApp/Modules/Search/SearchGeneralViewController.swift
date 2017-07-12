@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 class SearchGeneralViewController: UIViewController {
     
@@ -20,6 +21,14 @@ class SearchGeneralViewController: UIViewController {
         bindAction()
     }
 
+}
+
+extension SearchGeneralViewController: IndicatorInfoProvider {
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return "Tất cả"
+    }
+    
 }
 
 extension SearchGeneralViewController {

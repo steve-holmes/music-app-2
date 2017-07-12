@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 class SearchPlaylistViewController: UIViewController {
     
@@ -20,6 +21,14 @@ class SearchPlaylistViewController: UIViewController {
         bindAction()
     }
 
+}
+
+extension SearchPlaylistViewController: IndicatorInfoProvider {
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return "Playlist"
+    }
+    
 }
 
 extension SearchPlaylistViewController {

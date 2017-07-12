@@ -44,7 +44,9 @@ class OnlineModule: Module {
         container.register(UISearchController.self) { resolver in
             let searchModule = self.parent?.searchModule
             let searchResultController = searchModule?.container.resolve(SearchViewController.self)
+            
             let searchController = UISearchController(searchResultsController: searchResultController)
+            searchResultController?.searchController = searchController
             
             searchController.dimsBackgroundDuringPresentation = false
             searchController.hidesNavigationBarDuringPresentation = false

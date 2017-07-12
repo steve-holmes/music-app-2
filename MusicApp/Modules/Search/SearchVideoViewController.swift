@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 class SearchVideoViewController: UIViewController {
     
@@ -20,6 +21,14 @@ class SearchVideoViewController: UIViewController {
         bindAction()
     }
 
+}
+
+extension SearchVideoViewController: IndicatorInfoProvider {
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return "Video"
+    }
+    
 }
 
 extension SearchVideoViewController {

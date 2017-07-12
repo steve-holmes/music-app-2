@@ -34,6 +34,8 @@ enum API {
     case topics
     case topic(id: String)
     
+    case search(query: String)
+    
 }
 
 extension API {
@@ -82,6 +84,9 @@ extension API {
             return "/topics"
         case let .topic(id):
             return "/topics/\(id)"
+            
+        case let .search(query):
+            return "/search/\(query)"
         }
     }
     

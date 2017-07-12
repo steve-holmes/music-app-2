@@ -114,6 +114,8 @@
 		9E561EFF1F08B969002086DD /* VideoDetailStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E561EFE1F08B969002086DD /* VideoDetailStore.swift */; };
 		9E561F011F08B979002086DD /* VideoDetailAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E561F001F08B979002086DD /* VideoDetailAction.swift */; };
 		9E5C968D1EFF77C80005182A /* AnimatedCircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C968C1EFF77C80005182A /* AnimatedCircleImageView.swift */; };
+		9E5FA0F91F15C5BA007AD2ED /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */; };
+		9E5FA0FC1F15C87B007AD2ED /* SearchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */; };
 		9E630C7B1F02AC9900C11B2B /* UIImage+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E630C7A1F02AC9900C11B2B /* UIImage+Fade.swift */; };
 		9E69FE1B1F07E4150097D95A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E69FE1A1F07E4150097D95A /* HomeCoordinator.swift */; };
 		9E69FE1D1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E69FE1C1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift */; };
@@ -441,6 +443,8 @@
 		9E561EFE1F08B969002086DD /* VideoDetailStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoDetailStore.swift; path = Modules/Video/VideoDetailStore.swift; sourceTree = "<group>"; };
 		9E561F001F08B979002086DD /* VideoDetailAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoDetailAction.swift; path = Modules/Video/VideoDetailAction.swift; sourceTree = "<group>"; };
 		9E5C968C1EFF77C80005182A /* AnimatedCircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedCircleImageView.swift; path = Modules/Player/Views/AnimatedCircleImageView.swift; sourceTree = "<group>"; };
+		9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchLoader.swift; path = Modules/Search/SearchLoader.swift; sourceTree = "<group>"; };
+		9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchInfo.swift; path = Modules/Search/SearchInfo.swift; sourceTree = "<group>"; };
 		9E630C7A1F02AC9900C11B2B /* UIImage+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Fade.swift"; path = "Configurations/Extensions/UIImage+Fade.swift"; sourceTree = "<group>"; };
 		9E69FE1A1F07E4150097D95A /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCoordinator.swift; path = Modules/Home/HomeCoordinator.swift; sourceTree = "<group>"; };
 		9E69FE1C1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomePlaylistCollectionViewLayout.swift; path = Modules/Home/Views/HomePlaylistCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -748,6 +752,14 @@
 			name = "Value Objects";
 			sourceTree = "<group>";
 		};
+		9E5FA0FA1F15C86C007AD2ED /* Value Objects */ = {
+			isa = PBXGroup;
+			children = (
+				9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */,
+			);
+			name = "Value Objects";
+			sourceTree = "<group>";
+		};
 		9E6E88B11EEF147000F89C95 /* Music Module */ = {
 			isa = PBXGroup;
 			children = (
@@ -875,6 +887,7 @@
 		9EAEACDD1F15387D00BE6265 /* Search Module */ = {
 			isa = PBXGroup;
 			children = (
+				9E5FA0FA1F15C86C007AD2ED /* Value Objects */,
 				9EAEACE01F1538AF00BE6265 /* Views */,
 				9EAEACE11F1538B800BE6265 /* Controllers */,
 				9EAEACE21F1538C000BE6265 /* Domain Models */,
@@ -910,6 +923,7 @@
 			isa = PBXGroup;
 			children = (
 				9EAEACF11F153B0A00BE6265 /* SearchService.swift */,
+				9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */,
 			);
 			name = "Domain Models";
 			sourceTree = "<group>";
@@ -1901,6 +1915,7 @@
 				9E0D9B0D1EF82FDF0069FB6C /* MusicNotificationName.swift in Sources */,
 				9E17B3B11EF28E300099C52C /* PlaylistItemCell.swift in Sources */,
 				9E0055601EF23DE400CABF65 /* AdvertisementCell.swift in Sources */,
+				9E5FA0F91F15C5BA007AD2ED /* SearchLoader.swift in Sources */,
 				9E70DCDD1F078726000661D9 /* HomePageCell.swift in Sources */,
 				9E25D0041EF79B8200743A06 /* SongContextMenuViewController.swift in Sources */,
 				9E0D9B0F1EF834C80069FB6C /* SongNotification.swift in Sources */,
@@ -1960,6 +1975,7 @@
 				9EDAFD841EEB2929008BA357 /* PlayerPresentationController.swift in Sources */,
 				9E0D9B131EF83D270069FB6C /* MainNotification.swift in Sources */,
 				9E5C968D1EFF77C80005182A /* AnimatedCircleImageView.swift in Sources */,
+				9E5FA0FC1F15C87B007AD2ED /* SearchInfo.swift in Sources */,
 				9E9741801EF2E672008F4304 /* VideoOptions.swift in Sources */,
 				9E6E88F51EEF224800F89C95 /* SingerLoader.swift in Sources */,
 				9EFA2CF81EF3CD4200DE4184 /* OnlinePrefreshControl.swift in Sources */,

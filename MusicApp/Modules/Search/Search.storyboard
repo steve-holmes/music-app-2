@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFh-Xv-htM">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFh-Xv-htM" userLabel="History View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S9r-rd-eaS">
@@ -135,22 +135,141 @@
                                     <constraint firstItem="M1G-1d-v69" firstAttribute="leading" secondItem="cFh-Xv-htM" secondAttribute="leading" id="Y1c-o1-Zeb"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypM-if-60R" userLabel="Search Result View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4o-vc-jj0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-Sf-Ue1">
+                                                <rect key="frame" x="10" y="3" width="355" height="29"/>
+                                                <segments>
+                                                    <segment title="Tất cả"/>
+                                                    <segment title="Bài hát"/>
+                                                    <segment title="Playlist"/>
+                                                    <segment title="Video"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.33918481026594804" green="0.61965622926984754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="B7d-ms-TMZ"/>
+                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="centerY" secondItem="I4o-vc-jj0" secondAttribute="centerY" id="Hgm-SG-B27"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tig-Sf-Ue1" secondAttribute="trailing" constant="10" id="gne-cA-Wf3"/>
+                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="leading" secondItem="I4o-vc-jj0" secondAttribute="leading" constant="10" id="v43-y2-MUz"/>
+                                        </constraints>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bn-cn-Jez">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="568"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="top" secondItem="ypM-if-60R" secondAttribute="top" id="0CB-iu-9wm"/>
+                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="AHq-YD-L3f"/>
+                                    <constraint firstAttribute="trailing" secondItem="I4o-vc-jj0" secondAttribute="trailing" id="CDA-vS-RhN"/>
+                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="TEt-P3-EBl"/>
+                                    <constraint firstAttribute="trailing" secondItem="7bn-cn-Jez" secondAttribute="trailing" id="dgy-Qi-qyf"/>
+                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="top" secondItem="I4o-vc-jj0" secondAttribute="bottom" id="lE7-Fp-AGg"/>
+                                    <constraint firstAttribute="bottom" secondItem="7bn-cn-Jez" secondAttribute="bottom" id="vh5-iK-aWQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cFh-Xv-htM" firstAttribute="top" secondItem="93c-wf-bdK" secondAttribute="top" constant="64" id="1wJ-M3-XtX"/>
                             <constraint firstAttribute="trailing" secondItem="cFh-Xv-htM" secondAttribute="trailing" id="A7i-VE-cO6"/>
+                            <constraint firstAttribute="trailing" secondItem="ypM-if-60R" secondAttribute="trailing" id="Pwm-AO-seL"/>
                             <constraint firstItem="cFh-Xv-htM" firstAttribute="leading" secondItem="93c-wf-bdK" secondAttribute="leading" id="WG6-nq-Fft"/>
+                            <constraint firstItem="ypM-if-60R" firstAttribute="top" secondItem="93c-wf-bdK" secondAttribute="top" constant="64" id="dE1-jn-dLw"/>
+                            <constraint firstItem="ypM-if-60R" firstAttribute="leading" secondItem="93c-wf-bdK" secondAttribute="leading" id="hjw-WM-c8E"/>
                             <constraint firstAttribute="bottom" secondItem="cFh-Xv-htM" secondAttribute="bottom" id="qTZ-ZJ-5M2"/>
+                            <constraint firstAttribute="bottom" secondItem="ypM-if-60R" secondAttribute="bottom" id="zXE-ij-6VB"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="containerView" destination="7bn-cn-Jez" id="Ay7-De-qB7"/>
                         <outlet property="historyTableView" destination="M1G-1d-v69" id="8vw-jf-91t"/>
+                        <outlet property="historyView" destination="cFh-Xv-htM" id="SC0-u8-Eda"/>
+                        <outlet property="segmentedControl" destination="Tig-Sf-Ue1" id="ahT-mV-QYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcP-YF-iye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-218.40000000000001" y="134.48275862068968"/>
+            <point key="canvasLocation" x="-1116" y="152"/>
+        </scene>
+        <!--Search General View Controller-->
+        <scene sceneID="Afn-HV-d6b">
+            <objects>
+                <viewController storyboardIdentifier="SearchGeneralViewController" id="LSl-wC-cfz" customClass="SearchGeneralViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="W9K-8E-SOK"/>
+                        <viewControllerLayoutGuide type="bottom" id="heW-L7-ma1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tOl-kg-vUM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIS-4l-S0f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-238" y="152"/>
+        </scene>
+        <!--Search Song View Controller-->
+        <scene sceneID="PgU-Ez-FPA">
+            <objects>
+                <viewController storyboardIdentifier="SearchSongViewController" id="g7K-Jn-o71" customClass="SearchSongViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dqU-Di-zCz"/>
+                        <viewControllerLayoutGuide type="bottom" id="anV-6G-dJf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A6q-2a-cIm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Bm-bX-jWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="676" y="152"/>
+        </scene>
+        <!--Search Playlist View Controller-->
+        <scene sceneID="rlJ-Yi-fBg">
+            <objects>
+                <viewController storyboardIdentifier="SearchPlaylistViewController" id="8yx-Cb-LUt" customClass="SearchPlaylistViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HiR-bj-2eZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="EX2-td-YE1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4JL-Hv-Bjm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7h4-oB-c13" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="152"/>
+        </scene>
+        <!--Search Video View Controller-->
+        <scene sceneID="ctF-Hl-QFe">
+            <objects>
+                <viewController storyboardIdentifier="SearchVideoViewController" id="Qav-Jg-AOj" customClass="SearchVideoViewController" customModule="MusicApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="We2-cw-319"/>
+                        <viewControllerLayoutGuide type="bottom" id="bfQ-rK-Lvo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hUJ-Db-hnb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sct-Lm-oZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2457" y="152"/>
         </scene>
     </scenes>
 </document>

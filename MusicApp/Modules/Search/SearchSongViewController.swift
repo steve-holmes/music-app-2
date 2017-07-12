@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
 class SearchSongViewController: UIViewController {
     
@@ -20,6 +21,14 @@ class SearchSongViewController: UIViewController {
         bindAction()
     }
 
+}
+
+extension SearchSongViewController: IndicatorInfoProvider {
+    
+    func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+        return "Bài hát"
+    }
+    
 }
 
 extension SearchSongViewController {

@@ -30,15 +30,6 @@ class SearchModule: Module {
             return controller
         }
         
-        container.register(SearchViewController.self) { resolver in
-            let controller = UIStoryboard.search.controller(of: SearchViewController.self)
-            
-            controller.store = resolver.resolve(SearchStore.self)!
-            controller.action = resolver.resolve(SearchAction.self)!
-            
-            return controller
-        }
-        
         container.register(SearchGeneralViewController.self) { resolver in
             let controller = UIStoryboard.search.controller(of: SearchGeneralViewController.self)
             
@@ -89,7 +80,13 @@ class SearchModule: Module {
         // MARK: Domain Models
         
         container.register(SearchService.self) { resolver in
-            return MASearchService()
+            return MASearchService(
+                loader: resolver.resolve(SearchLoader.self)!
+            )
+        }
+        
+        container.register(SearchLoader.self) { resolver in
+            return MASearchLoader()
         }
         
     }
