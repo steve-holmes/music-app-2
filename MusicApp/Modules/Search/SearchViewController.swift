@@ -32,6 +32,17 @@ class SearchViewController: SegmentedPagerTabStripViewController {
         bindAction()
     }
     
+    @IBAction func segmentedControlValueChanged(_ sender: UISegmentedControl) {
+        let index = sender.selectedSegmentIndex
+        switch index {
+        case 0: action.searchStateChange.execute(.all)
+        case 1: action.searchStateChange.execute(.song)
+        case 2: action.searchStateChange.execute(.playlist)
+        case 3: action.searchStateChange.execute(.video)
+        default: break
+        }
+    }
+    
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
         return controllers
     }
@@ -44,12 +55,14 @@ extension SearchViewController {
         bindHistories()
         
         store.state.asObservable()
+            .distinctUntilChanged()
             .subscribe(onNext: { [weak self] state in
                 switch state {
-                case .all:      self?.moveToViewController(at: 0, animated: true)
-                case .song:     self?.moveToViewController(at: 1, animated: true)
-                case .playlist: self?.moveToViewController(at: 2, animated: true)
-                case .video:    self?.moveToViewController(at: 3, animated: true)
+                case .all where self?.segmentedControl.selectedSegmentIndex != 0:          self?.moveToViewController(at: 0, animated: true)
+                case .song where self?.segmentedControl.selectedSegmentIndex != 1:         self?.moveToViewController(at: 1, animated: true)
+                case .playlist where self?.segmentedControl.selectedSegmentIndex != 2:     self?.moveToViewController(at: 2, animated: true)
+                case .video where self?.segmentedControl.selectedSegmentIndex != 3:        self?.moveToViewController(at: 3, animated: true)
+                default: break
                 }
             })
             .addDisposableTo(rx_disposeBag)

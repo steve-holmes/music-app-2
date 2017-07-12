@@ -152,6 +152,9 @@
                                                     <segment title="Video"/>
                                                 </segments>
                                                 <color key="tintColor" red="0.33918481026594804" green="0.61965622926984754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="segmentedControlValueChanged:" destination="hV8-P1-X46" eventType="valueChanged" id="SEc-Rb-Zvv"/>
+                                                </connections>
                                             </segmentedControl>
                                         </subviews>
                                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
