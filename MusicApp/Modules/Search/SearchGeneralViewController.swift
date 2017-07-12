@@ -20,10 +20,6 @@ class SearchGeneralViewController: UIViewController {
     
     var store: SearchStore!
     var action: SearchAction!
-    
-    var moveToSongAction: CocoaAction?
-    var moveToPlaylistAction: CocoaAction?
-    var moveToVideoAction: CocoaAction?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +92,7 @@ extension SearchGeneralViewController: UITableViewDelegate {
                 size: CGSize(width: tableView.bounds.width, height: 35)
             ))
             songHeader.title = "Bài hát"
-            songHeader.action = self.moveToSongAction
+            songHeader.action = CocoaAction { [weak self] _ in self?.action.searchStateChange.execute(.song) ?? .empty() }
             return songHeader
         }
         
@@ -106,7 +102,7 @@ extension SearchGeneralViewController: UITableViewDelegate {
                 size: CGSize(width: tableView.bounds.width, height: 35)
             ))
             playlistHeader.title = "Playlist"
-            playlistHeader.action = self.moveToPlaylistAction
+            playlistHeader.action = CocoaAction { [weak self] _ in self?.action.searchStateChange.execute(.playlist) ?? .empty() }
             return playlistHeader
         }
         
@@ -116,7 +112,7 @@ extension SearchGeneralViewController: UITableViewDelegate {
                 size: CGSize(width: tableView.bounds.width, height: 35)
             ))
             videoHeader.title = "Video"
-            videoHeader.action = self.moveToVideoAction
+            videoHeader.action = CocoaAction { [weak self] _ in self?.action.searchStateChange.execute(.video) ?? .empty() }
             return videoHeader
         }
         
@@ -152,6 +148,7 @@ extension SearchGeneralViewController {
             .combineLatest(songs, playlists, videos) { songs, playlists, videos in
                 (songs: songs, playlists: playlists, videos: videos)
             }
+            .filter { [weak self] _ in (self?.store.state.value ?? .all) == .all }
             .map { songs, playlists, videos in [
                 SectionModel(model: "Songs", items: songs.map { SearchItem.song($0) }),
                 SectionModel(model: "Playlists", items: playlists.map { SearchItem.playlist($0) }),

@@ -22,6 +22,8 @@ protocol SearchAction {
     
     var onContextButtonTap: Action<Song, Void> { get }
     
+    var searchStateChange: Action<SearchState, Void> { get }
+    
 }
 
 class MASearchAction: SearchAction {
@@ -37,9 +39,13 @@ class MASearchAction: SearchAction {
     lazy var searchTextChange: Action<String, Void> = {
         return Action { [weak self] query in
             guard let this = self else { return .empty() }
-            return this.service.search(query)
-                .do(onNext: { response in
-                    if case let .item(info) = response {
+            
+            switch this.store.state.value {
+            case .all:
+                return this.service.search(query)
+                    .do(onNext: { response in
+                        guard case let .item(info) = response else { return }
+                        
                         if let songs = info.songs, !songs.isEmpty {
                             this.store.songs.value = songs
                         }
@@ -49,9 +55,33 @@ class MASearchAction: SearchAction {
                         if let videos = info.videos, !videos.isEmpty {
                             this.store.videos.value = videos
                         }
-                    }
-                })
-                .map { _ in }
+                    })
+                    .map { _ in }
+                
+            case .song:
+                return this.service.searchSong(query)
+                    .do(onNext: { response in
+                        guard case let .item(songs) = response else { return }
+                        this.store.songs.value = songs
+                    })
+                    .map { _ in }
+                
+            case .playlist:
+                return this.service.searchPlaylist(query)
+                    .do(onNext: { response in
+                        guard case let .item(playlists) = response else { return }
+                        this.store.playlists.value = playlists
+                    })
+                    .map { _ in }
+                
+            case .video:
+                return this.service.searchVideo(query)
+                    .do(onNext: { response in
+                        guard case let .item(videos) = response else { return }
+                        this.store.videos.value = videos
+                    })
+                    .map { _ in }
+            }
         }
     }()
     
@@ -85,6 +115,13 @@ class MASearchAction: SearchAction {
     lazy var onContextButtonTap: Action<Song, Void> = {
         return Action { [weak self] song in
             return self?.service.openContextMenu(song) ?? .empty()
+        }
+    }()
+    
+    lazy var searchStateChange: Action<SearchState, Void> = {
+        return Action { [weak self] state in
+            self?.store.state.value = state
+            return .empty()
         }
     }()
     

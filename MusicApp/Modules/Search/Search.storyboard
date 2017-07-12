@@ -533,6 +533,9 @@
                             <constraint firstItem="UxB-ao-gzL" firstAttribute="leading" secondItem="A6q-2a-cIm" secondAttribute="leading" id="oCh-Oi-usL"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="UxB-ao-gzL" id="vfk-bh-6L2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Bm-bX-jWo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -631,6 +634,9 @@
                             <constraint firstItem="KAA-VR-IFi" firstAttribute="leading" secondItem="4JL-Hv-Bjm" secondAttribute="leading" id="itc-Gy-6Ql"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="KAA-VR-IFi" id="jgp-bN-Zqe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7h4-oB-c13" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -729,6 +735,9 @@
                             <constraint firstAttribute="bottom" secondItem="obj-KS-bGR" secondAttribute="bottom" id="gQz-BA-ATf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="obj-KS-bGR" id="tvz-c4-Bfy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sct-Lm-oZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

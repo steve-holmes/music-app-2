@@ -16,6 +16,8 @@ protocol SearchStore {
     var playlists: Variable<[Playlist]> { get }
     var videos: Variable<[Video]> { get }
     
+    var state: Variable<SearchState> { get }
+    
 }
 
 class MASearchStore: SearchStore {
@@ -25,5 +27,7 @@ class MASearchStore: SearchStore {
     let songs = Variable<[Song]>([])
     let playlists = Variable<[Playlist]>([])
     let videos = Variable<[Video]>([])
+    
+    let state = Variable<SearchState>(.all)
     
 }

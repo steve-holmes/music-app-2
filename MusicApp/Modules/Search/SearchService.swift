@@ -11,6 +11,9 @@ import RxSwift
 protocol SearchService {
     
     func search(_ query: String) -> Observable<ItemResponse<SearchInfo>>
+    func searchSong(_ query: String) -> Observable<ItemResponse<[Song]>>
+    func searchPlaylist(_ query: String) -> Observable<ItemResponse<[Playlist]>>
+    func searchVideo(_ query: String) -> Observable<ItemResponse<[Video]>>
     
     func play(song: Song) -> Observable<Void>
     
@@ -35,6 +38,18 @@ class MASearchService: SearchService {
     
     func search(_ query: String) -> Observable<ItemResponse<SearchInfo>> {
         return loader.search(query.noAccent.url)
+    }
+    
+    func searchSong(_ query: String) -> Observable<ItemResponse<[Song]>> {
+        return loader.searchSong(query.noAccent.url)
+    }
+    
+    func searchPlaylist(_ query: String) -> Observable<ItemResponse<[Playlist]>> {
+        return loader.searchPlaylist(query.noAccent.url)
+    }
+    
+    func searchVideo(_ query: String) -> Observable<ItemResponse<[Video]>> {
+        return loader.searchVideo(query.noAccent.url)
     }
     
     func play(song: Song) -> Observable<Void> {

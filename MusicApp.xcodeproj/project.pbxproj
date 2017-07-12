@@ -108,6 +108,7 @@
 		9E4DA9F51EFD3C890001A2D4 /* ListPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DA9F41EFD3C890001A2D4 /* ListPlayerViewController.swift */; };
 		9E4DA9F71EFD3CA30001A2D4 /* InformationPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DA9F61EFD3CA30001A2D4 /* InformationPlayerViewController.swift */; };
 		9E4DA9F91EFD3CB00001A2D4 /* LyricPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4DA9F81EFD3CB00001A2D4 /* LyricPlayerViewController.swift */; };
+		9E4F0B441F1670DE00435ABB /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4F0B431F1670DE00435ABB /* SearchState.swift */; };
 		9E51059C1EEBBEC3008943AB /* OnlineMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E51059B1EEBBEC3008943AB /* OnlineMenuCell.swift */; };
 		9E536CBE1F02706F0053F5E8 /* PlayerTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E536CBD1F02706F0053F5E8 /* PlayerTimer.swift */; };
 		9E561EFD1F08B6B3002086DD /* VideoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E561EFC1F08B6B3002086DD /* VideoDetailViewController.swift */; };
@@ -440,6 +441,7 @@
 		9E4DA9F41EFD3C890001A2D4 /* ListPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPlayerViewController.swift; path = Modules/Player/ListPlayerViewController.swift; sourceTree = "<group>"; };
 		9E4DA9F61EFD3CA30001A2D4 /* InformationPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InformationPlayerViewController.swift; path = Modules/Player/InformationPlayerViewController.swift; sourceTree = "<group>"; };
 		9E4DA9F81EFD3CB00001A2D4 /* LyricPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LyricPlayerViewController.swift; path = Modules/Player/LyricPlayerViewController.swift; sourceTree = "<group>"; };
+		9E4F0B431F1670DE00435ABB /* SearchState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchState.swift; path = Modules/Search/SearchState.swift; sourceTree = "<group>"; };
 		9E51059B1EEBBEC3008943AB /* OnlineMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OnlineMenuCell.swift; path = Modules/Online/Views/OnlineMenuCell.swift; sourceTree = "<group>"; };
 		9E536CBD1F02706F0053F5E8 /* PlayerTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerTimer.swift; path = Modules/Player/PlayerTimer.swift; sourceTree = "<group>"; };
 		9E561EFC1F08B6B3002086DD /* VideoDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoDetailViewController.swift; path = Modules/Video/VideoDetailViewController.swift; sourceTree = "<group>"; };
@@ -763,6 +765,7 @@
 			children = (
 				9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */,
 				9E5FA0FD1F15F5AC007AD2ED /* SearchItem.swift */,
+				9E4F0B431F1670DE00435ABB /* SearchState.swift */,
 			);
 			name = "Value Objects";
 			sourceTree = "<group>";
@@ -1949,6 +1952,7 @@
 				9EF383981EF6F23300DFA291 /* PlaylistDetailState.swift in Sources */,
 				9EE052A21EEDBB390096ABDE /* UIFont+Constants.swift in Sources */,
 				9EDAFD071EEAE6B4008BA357 /* PlayerViewController.swift in Sources */,
+				9E4F0B441F1670DE00435ABB /* SearchState.swift in Sources */,
 				9E70DCF31F07AEDA000661D9 /* HomeVideoItemCell.swift in Sources */,
 				9E2570951EFFD44F00995913 /* PlayerPageControl.swift in Sources */,
 				9E6E88AB1EEF13FA00F89C95 /* SingerStore.swift in Sources */,

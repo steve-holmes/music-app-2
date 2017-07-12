@@ -27,29 +27,9 @@ class SearchViewController: SegmentedPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSearchGeneralController()
         
         bindStore()
         bindAction()
-    }
-    
-    private func configureSearchGeneralController() {
-        guard let generalController = controllers.first as? SearchGeneralViewController else { return }
-        
-        generalController.moveToSongAction = CocoaAction { [weak self] in
-            self?.moveToViewController(at: 1, animated: true)
-            return .empty()
-        }
-        
-        generalController.moveToPlaylistAction = CocoaAction { [weak self] in
-            self?.moveToViewController(at: 2, animated: true)
-            return .empty()
-        }
-        
-        generalController.moveToVideoAction = CocoaAction { [weak self] in
-            self?.moveToViewController(at: 3, animated: true)
-            return .empty()
-        }
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -62,6 +42,17 @@ extension SearchViewController {
     
     func bindStore() {
         bindHistories()
+        
+        store.state.asObservable()
+            .subscribe(onNext: { [weak self] state in
+                switch state {
+                case .all:      self?.moveToViewController(at: 0, animated: true)
+                case .song:     self?.moveToViewController(at: 1, animated: true)
+                case .playlist: self?.moveToViewController(at: 2, animated: true)
+                case .video:    self?.moveToViewController(at: 3, animated: true)
+                }
+            })
+            .addDisposableTo(rx_disposeBag)
     }
     
     private func bindHistories() {

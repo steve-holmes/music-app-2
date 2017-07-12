@@ -35,6 +35,9 @@ enum API {
     case topic(id: String)
     
     case search(query: String)
+    case searchSong(query: String)
+    case searchPlaylist(query: String)
+    case searchVideo(query: String)
     
 }
 
@@ -87,6 +90,12 @@ extension API {
             
         case let .search(query):
             return "/search/\(query)"
+        case let .searchSong(query):
+            return "/search/songs/\(query)"
+        case let .searchPlaylist(query):
+            return "/search/playlists/\(query)"
+        case let .searchVideo(query):
+            return "/search/videos/\(query)"
         }
     }
     
