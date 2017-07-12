@@ -6,10 +6,14 @@
 //  Copyright © 2017 HungDo. All rights reserved.
 //
 
+import RxSwift
+import Action
+
 protocol OnlineAction {
     
     var store: OnlineStore { get }
-    var service: OnlineService { get }
+    
+    func searchBarClicked() -> CocoaAction
     
 }
 
@@ -21,6 +25,12 @@ class MAOnlineAction: OnlineAction {
     init(store: OnlineStore, service: OnlineService) {
         self.store = store
         self.service = service
+    }
+    
+    func searchBarClicked() -> CocoaAction {
+        return CocoaAction { [weak self] in
+            self?.service.presentSearch() ?? .empty()
+        }
     }
     
 }

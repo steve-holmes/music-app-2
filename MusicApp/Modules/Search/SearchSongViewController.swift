@@ -81,6 +81,7 @@ extension SearchSongViewController {
     func bindAction() {
         tableView.rx.modelSelected(Song.self)
             .subscribe(onNext: { [weak self] song in
+                self?.view.endEditing(true)
                 self?.action.songDidSelect.execute(song)
             })
             .addDisposableTo(rx_disposeBag)

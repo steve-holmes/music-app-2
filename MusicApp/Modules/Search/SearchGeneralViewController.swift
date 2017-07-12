@@ -166,6 +166,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] song in
                 guard let song = song else { return }
+                self?.view.endEditing(true)
                 self?.action.songDidSelect.execute(song)
             })
             .addDisposableTo(rx_disposeBag)
@@ -179,6 +180,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] playlist in
                 guard let playlist = playlist else { return }
+                self?.view.endEditing(true)
                 self?.action.playlistDidSelect.execute(playlist)
             })
             .addDisposableTo(rx_disposeBag)
@@ -192,6 +194,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] video in
                 guard let video = video else { return }
+                self?.view.endEditing(true)
                 self?.action.videoDidSelect.execute(video)
             })
             .addDisposableTo(rx_disposeBag)

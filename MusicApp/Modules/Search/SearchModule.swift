@@ -14,6 +14,30 @@ class SearchModule: Module {
         
         // MARK: Controllers
         
+        container.register(UISearchController.self) { resolver in
+            let searchController = UISearchController(searchResultsController: nil)
+            
+            searchController.dimsBackgroundDuringPresentation = false
+            searchController.hidesNavigationBarDuringPresentation = false
+            
+            searchController.searchBar.placeholder = "Tìm kiếm..."
+            searchController.searchBar.isTranslucent = false
+            searchController.searchBar.searchBarStyle = .prominent
+            searchController.searchBar.barTintColor = .background
+            searchController.searchBar.backgroundImage = UIImage()
+            
+            let searchTextField = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+            searchTextField.font = UIFont.avenirNextFont().withSize(15)
+            
+            let searchBarButton = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
+            searchBarButton.setTitleTextAttributes([
+                NSFontAttributeName: UIFont.avenirNextFont().withSize(15),
+                NSForegroundColorAttributeName: UIColor.text
+                ], for: .normal)
+            
+            return searchController
+        }
+        
         container.register(SearchViewController.self) { resolver in
             let controller = UIStoryboard.search.controller(of: SearchViewController.self)
             
@@ -26,6 +50,8 @@ class SearchModule: Module {
                 resolver.resolve(SearchPlaylistViewController.self)!,
                 resolver.resolve(SearchVideoViewController.self)!
             ]
+            
+            controller.searchController = resolver.resolve(UISearchController.self)!
             
             return controller
         }

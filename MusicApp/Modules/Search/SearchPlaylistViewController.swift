@@ -77,6 +77,7 @@ extension SearchPlaylistViewController {
     func bindAction() {
         tableView.rx.modelSelected(Playlist.self)
             .subscribe(onNext: { [weak self] playlist in
+                self?.view.endEditing(true)
                 self?.action.playlistDidSelect.execute(playlist)
             })
             .addDisposableTo(rx_disposeBag)

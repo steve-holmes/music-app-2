@@ -15,57 +15,31 @@ class OnlineModule: Module {
         
         // MARK: Controller
         
-        container.register(UINavigationController.self) { resolver in
+        container.register(UINavigationController.self) { [weak self] resolver in
             let navigationController = UIStoryboard.online.instantiateViewController(withIdentifier: String(describing: OnlineViewController.self)) as! UINavigationController
             
             if let onlineController = navigationController.viewControllers.first as? OnlineViewController {
                 onlineController.store = resolver.resolve(OnlineStore.self)!
                 onlineController.action = resolver.resolve(OnlineAction.self)!
                 
-                onlineController.searchController = resolver.resolve(UISearchController.self)!
-                onlineController.definesPresentationContext = true
+                if let searchModule = self?.parent?.searchModule {
+                    onlineController.searchController = searchModule.container.resolve(UISearchController.self)!
+                }
                 
-                self.setupMenu(onlineController)
+                self?.setupMenu(onlineController)
                 
                 onlineController.controllers = [
-                    self.getController(of: HomeViewController.self,     in: self.parent!.homeModule),
-                    self.getController(of: PlaylistViewController.self, in: self.parent!.playlistModule),
-                    self.getController(of: SongViewController.self,     in: self.parent!.songModule),
-                    self.getController(of: VideoViewController.self,    in: self.parent!.videoModule),
-                    self.getController(of: RankViewController.self,     in: self.parent!.rankModule),
-                    self.getController(of: SingerViewController.self,   in: self.parent!.singerModule),
-                    self.getController(of: TopicViewController.self,    in: self.parent!.topicModule)
+                    self!.getController(of: HomeViewController.self,     in: self!.parent!.homeModule),
+                    self!.getController(of: PlaylistViewController.self, in: self!.parent!.playlistModule),
+                    self!.getController(of: SongViewController.self,     in: self!.parent!.songModule),
+                    self!.getController(of: VideoViewController.self,    in: self!.parent!.videoModule),
+                    self!.getController(of: RankViewController.self,     in: self!.parent!.rankModule),
+                    self!.getController(of: SingerViewController.self,   in: self!.parent!.singerModule),
+                    self!.getController(of: TopicViewController.self,    in: self!.parent!.topicModule)
                 ]
             }
             
             return navigationController
-        }
-        
-        container.register(UISearchController.self) { resolver in
-            let searchModule = self.parent?.searchModule
-            let searchResultController = searchModule?.container.resolve(SearchViewController.self)
-            
-            let searchController = UISearchController(searchResultsController: searchResultController)
-            searchResultController?.searchController = searchController
-            
-            searchController.dimsBackgroundDuringPresentation = false
-            searchController.hidesNavigationBarDuringPresentation = false
-            
-            searchController.searchBar.placeholder = "Tìm kiếm..."
-            searchController.searchBar.isTranslucent = false
-            searchController.searchBar.searchBarStyle = .prominent
-            searchController.searchBar.barTintColor = .background
-            
-            let searchTextField = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
-            searchTextField.font = UIFont.avenirNextFont().withSize(15)
-            
-            let searchBarButton = UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self])
-            searchBarButton.setTitleTextAttributes([
-                NSFontAttributeName: UIFont.avenirNextFont().withSize(15),
-                NSForegroundColorAttributeName: UIColor.text
-            ], for: .normal)
-            
-            return searchController
         }
         
         container.register(OnlineStore.self) { resolver in
@@ -82,7 +56,19 @@ class OnlineModule: Module {
         // MARK: Domain Model
         
         container.register(OnlineService.self) { resolver in
-            return MAOnlineService()
+            return MAOnlineService(
+                coordinator: resolver.resolve(OnlineCoordinator.self)!
+            )
+        }
+        
+        container.register(OnlineCoordinator.self) { resolver in
+            return MAOnlineCoordinator()
+        }.initCompleted { [weak self] resolver, coordinator in
+            let coordinator = coordinator as! MAOnlineCoordinator
+            coordinator.sourceController = resolver.resolve(UINavigationController.self)?.viewControllers.first as? OnlineViewController
+            
+            let searchModule = self?.parent?.searchModule
+            coordinator.getSearchController = { searchModule?.container.resolve(SearchViewController.self) }
         }
     }
     

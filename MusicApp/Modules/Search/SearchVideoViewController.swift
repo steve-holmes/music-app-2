@@ -77,6 +77,7 @@ extension SearchVideoViewController {
     func bindAction() {
         tableView.rx.modelSelected(Video.self)
             .subscribe(onNext: { [weak self] video in
+                self?.view.endEditing(true)
                 self?.action.videoDidSelect.execute(video)
             })
             .addDisposableTo(rx_disposeBag)

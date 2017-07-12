@@ -17,8 +17,9 @@ class SearchViewController: SegmentedPagerTabStripViewController {
     
     @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var historyView: UIView!
+    @IBOutlet weak var searchView: UIView!
     
-    weak var searchController: UISearchController!
+    var searchController: UISearchController!
     
     var store: SearchStore!
     var action: SearchAction!
@@ -27,6 +28,8 @@ class SearchViewController: SegmentedPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchView.addSubview(searchController.searchBar)
+        self.definesPresentationContext = true
         
         bindStore()
         bindAction()

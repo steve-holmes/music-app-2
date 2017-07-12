@@ -23,6 +23,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-hb-cFY" userLabel="Search View">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="g2j-0q-pHa"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypM-if-60R" userLabel="Search Result View">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4o-vc-jj0">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                                        <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-Sf-Ue1">
+                                                <rect key="frame" x="10" y="3" width="355" height="29"/>
+                                                <segments>
+                                                    <segment title="Tất cả"/>
+                                                    <segment title="Bài hát"/>
+                                                    <segment title="Playlist"/>
+                                                    <segment title="Video"/>
+                                                </segments>
+                                                <color key="tintColor" red="0.33918481026594804" green="0.61965622926984754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="segmentedControlValueChanged:" destination="hV8-P1-X46" eventType="valueChanged" id="SEc-Rb-Zvv"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="B7d-ms-TMZ"/>
+                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="centerY" secondItem="I4o-vc-jj0" secondAttribute="centerY" id="Hgm-SG-B27"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tig-Sf-Ue1" secondAttribute="trailing" constant="10" id="gne-cA-Wf3"/>
+                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="leading" secondItem="I4o-vc-jj0" secondAttribute="leading" constant="10" id="v43-y2-MUz"/>
+                                        </constraints>
+                                    </view>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bn-cn-Jez">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="568"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="top" secondItem="ypM-if-60R" secondAttribute="top" id="0CB-iu-9wm"/>
+                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="AHq-YD-L3f"/>
+                                    <constraint firstAttribute="trailing" secondItem="I4o-vc-jj0" secondAttribute="trailing" id="CDA-vS-RhN"/>
+                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="TEt-P3-EBl"/>
+                                    <constraint firstAttribute="trailing" secondItem="7bn-cn-Jez" secondAttribute="trailing" id="dgy-Qi-qyf"/>
+                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="top" secondItem="I4o-vc-jj0" secondAttribute="bottom" id="lE7-Fp-AGg"/>
+                                    <constraint firstAttribute="bottom" secondItem="7bn-cn-Jez" secondAttribute="bottom" id="vh5-iK-aWQ"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cFh-Xv-htM" userLabel="History View">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
@@ -137,59 +187,19 @@
                                     <constraint firstItem="M1G-1d-v69" firstAttribute="leading" secondItem="cFh-Xv-htM" secondAttribute="leading" id="Y1c-o1-Zeb"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypM-if-60R" userLabel="Search Result View">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I4o-vc-jj0">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
-                                        <subviews>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tig-Sf-Ue1">
-                                                <rect key="frame" x="10" y="3" width="355" height="29"/>
-                                                <segments>
-                                                    <segment title="Tất cả"/>
-                                                    <segment title="Bài hát"/>
-                                                    <segment title="Playlist"/>
-                                                    <segment title="Video"/>
-                                                </segments>
-                                                <color key="tintColor" red="0.33918481026594804" green="0.61965622926984754" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="segmentedControlValueChanged:" destination="hV8-P1-X46" eventType="valueChanged" id="SEc-Rb-Zvv"/>
-                                                </connections>
-                                            </segmentedControl>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="B7d-ms-TMZ"/>
-                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="centerY" secondItem="I4o-vc-jj0" secondAttribute="centerY" id="Hgm-SG-B27"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tig-Sf-Ue1" secondAttribute="trailing" constant="10" id="gne-cA-Wf3"/>
-                                            <constraint firstItem="Tig-Sf-Ue1" firstAttribute="leading" secondItem="I4o-vc-jj0" secondAttribute="leading" constant="10" id="v43-y2-MUz"/>
-                                        </constraints>
-                                    </view>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bn-cn-Jez">
-                                        <rect key="frame" x="0.0" y="35" width="375" height="568"/>
-                                    </scrollView>
-                                </subviews>
-                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="top" secondItem="ypM-if-60R" secondAttribute="top" id="0CB-iu-9wm"/>
-                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="AHq-YD-L3f"/>
-                                    <constraint firstAttribute="trailing" secondItem="I4o-vc-jj0" secondAttribute="trailing" id="CDA-vS-RhN"/>
-                                    <constraint firstItem="I4o-vc-jj0" firstAttribute="leading" secondItem="ypM-if-60R" secondAttribute="leading" id="TEt-P3-EBl"/>
-                                    <constraint firstAttribute="trailing" secondItem="7bn-cn-Jez" secondAttribute="trailing" id="dgy-Qi-qyf"/>
-                                    <constraint firstItem="7bn-cn-Jez" firstAttribute="top" secondItem="I4o-vc-jj0" secondAttribute="bottom" id="lE7-Fp-AGg"/>
-                                    <constraint firstAttribute="bottom" secondItem="7bn-cn-Jez" secondAttribute="bottom" id="vh5-iK-aWQ"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="cFh-Xv-htM" firstAttribute="top" secondItem="93c-wf-bdK" secondAttribute="top" constant="64" id="1wJ-M3-XtX"/>
                             <constraint firstAttribute="trailing" secondItem="cFh-Xv-htM" secondAttribute="trailing" id="A7i-VE-cO6"/>
+                            <constraint firstItem="C0n-hb-cFY" firstAttribute="leading" secondItem="93c-wf-bdK" secondAttribute="leading" id="BIe-ts-1Rg"/>
+                            <constraint firstItem="C0n-hb-cFY" firstAttribute="top" secondItem="93c-wf-bdK" secondAttribute="top" constant="20" id="PN6-PD-mpB"/>
                             <constraint firstAttribute="trailing" secondItem="ypM-if-60R" secondAttribute="trailing" id="Pwm-AO-seL"/>
                             <constraint firstItem="cFh-Xv-htM" firstAttribute="leading" secondItem="93c-wf-bdK" secondAttribute="leading" id="WG6-nq-Fft"/>
                             <constraint firstItem="ypM-if-60R" firstAttribute="top" secondItem="93c-wf-bdK" secondAttribute="top" constant="64" id="dE1-jn-dLw"/>
                             <constraint firstItem="ypM-if-60R" firstAttribute="leading" secondItem="93c-wf-bdK" secondAttribute="leading" id="hjw-WM-c8E"/>
                             <constraint firstAttribute="bottom" secondItem="cFh-Xv-htM" secondAttribute="bottom" id="qTZ-ZJ-5M2"/>
+                            <constraint firstAttribute="trailing" secondItem="C0n-hb-cFY" secondAttribute="trailing" id="sRL-Jd-EoD"/>
                             <constraint firstAttribute="bottom" secondItem="ypM-if-60R" secondAttribute="bottom" id="zXE-ij-6VB"/>
                         </constraints>
                     </view>
@@ -197,6 +207,7 @@
                         <outlet property="containerView" destination="7bn-cn-Jez" id="Ay7-De-qB7"/>
                         <outlet property="historyTableView" destination="M1G-1d-v69" id="8vw-jf-91t"/>
                         <outlet property="historyView" destination="cFh-Xv-htM" id="SC0-u8-Eda"/>
+                        <outlet property="searchView" destination="C0n-hb-cFY" id="2Cn-xG-ZcQ"/>
                         <outlet property="segmentedControl" destination="Tig-Sf-Ue1" id="ahT-mV-QYI"/>
                     </connections>
                 </viewController>

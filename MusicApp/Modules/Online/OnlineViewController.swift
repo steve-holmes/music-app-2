@@ -26,6 +26,9 @@ class OnlineViewController: BaseButtonBarPagerTabStripViewController<OnlineMenuC
         if let homeController = controllers[0] as? HomeViewController {
             homeController.delegate = self
         }
+        
+        bindStore()
+        bindAction()
     }
     
     // MARK: Search Bar
@@ -68,6 +71,22 @@ extension OnlineViewController: HomeViewControllerDelegate {
     
     func homeViewControllerSwitchToSongViewController(_ controller: HomeViewController) {
         moveToViewController(at: 2, animated: true)
+    }
+    
+}
+
+extension OnlineViewController {
+    
+    func bindStore() {
+        
+    }
+    
+}
+
+extension OnlineViewController {
+    
+    func bindAction() {
+        searchView.action = action.searchBarClicked()
     }
     
 }
