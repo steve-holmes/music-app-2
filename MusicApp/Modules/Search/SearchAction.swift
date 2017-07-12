@@ -16,6 +16,12 @@ protocol SearchAction {
     var searchTextChange: Action<String, Void> { get }
     var searchTextClear: CocoaAction { get }
     
+    var songDidSelect: Action<Song, Void> { get }
+    var playlistDidSelect: Action<Playlist, Void> { get }
+    var videoDidSelect: Action<Video, Void> { get }
+    
+    var onContextButtonTap: Action<Song, Void> { get }
+    
 }
 
 class MASearchAction: SearchAction {
@@ -55,6 +61,30 @@ class MASearchAction: SearchAction {
             self?.store.playlists.value = []
             self?.store.videos.value = []
             return .empty()
+        }
+    }()
+    
+    lazy var songDidSelect: Action<Song, Void> = {
+        return Action { [weak self] song in
+            return self?.service.play(song: song) ?? .empty()
+        }
+    }()
+    
+    lazy var playlistDidSelect: Action<Playlist, Void> = {
+        return Action { [weak self] playlist in
+            return self?.service.presentPlaylist(playlist) ?? .empty()
+        }
+    }()
+    
+    lazy var videoDidSelect: Action<Video, Void> = {
+        return Action { [weak self] video in
+            return self?.service.presentVideo(video) ?? .empty()
+        }
+    }()
+    
+    lazy var onContextButtonTap: Action<Song, Void> = {
+        return Action { [weak self] song in
+            return self?.service.openContextMenu(song) ?? .empty()
         }
     }()
     

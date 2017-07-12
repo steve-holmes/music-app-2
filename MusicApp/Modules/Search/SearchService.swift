@@ -12,18 +12,45 @@ protocol SearchService {
     
     func search(_ query: String) -> Observable<ItemResponse<SearchInfo>>
     
+    func play(song: Song) -> Observable<Void>
+    
+    func presentPlaylist(_ playlist: Playlist) -> Observable<Void>
+    func presentVideo(_ video: Video) -> Observable<Void>
+    
+    func openContextMenu(_ song: Song) -> Observable<Void>
+    
 }
 
 class MASearchService: SearchService {
     
     let loader: SearchLoader
+    let notification: SongNotification
+    let coordinator: SearchCoordinator
     
-    init(loader: SearchLoader) {
+    init(loader: SearchLoader, notification: SongNotification, coordinator: SearchCoordinator) {
         self.loader = loader
+        self.notification = notification
+        self.coordinator = coordinator
     }
     
     func search(_ query: String) -> Observable<ItemResponse<SearchInfo>> {
         return loader.search(query.noAccent.url)
+    }
+    
+    func play(song: Song) -> Observable<Void> {
+        return notification.play(song)
+    }
+    
+    func presentPlaylist(_ playlist: Playlist) -> Observable<Void> {
+        return coordinator.presentPlaylist(playlist)
+    }
+    
+    func presentVideo(_ video: Video) -> Observable<Void> {
+        return coordinator.presentVideo(video)
+    }
+    
+    func openContextMenu(_ song: Song) -> Observable<Void> {
+        return coordinator.openContextMenu(song)
     }
     
 }

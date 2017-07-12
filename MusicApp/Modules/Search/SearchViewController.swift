@@ -10,6 +10,7 @@ import UIKit
 import XLPagerTabStrip
 import RxSwift
 import RxCocoa
+import Action
 import NSObject_Rx
 
 class SearchViewController: SegmentedPagerTabStripViewController {
@@ -26,9 +27,29 @@ class SearchViewController: SegmentedPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSearchGeneralController()
         
         bindStore()
         bindAction()
+    }
+    
+    private func configureSearchGeneralController() {
+        guard let generalController = controllers.first as? SearchGeneralViewController else { return }
+        
+        generalController.moveToSongAction = CocoaAction { [weak self] in
+            self?.moveToViewController(at: 1, animated: true)
+            return .empty()
+        }
+        
+        generalController.moveToPlaylistAction = CocoaAction { [weak self] in
+            self?.moveToViewController(at: 2, animated: true)
+            return .empty()
+        }
+        
+        generalController.moveToVideoAction = CocoaAction { [weak self] in
+            self?.moveToViewController(at: 3, animated: true)
+            return .empty()
+        }
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
@@ -41,7 +62,6 @@ extension SearchViewController {
     
     func bindStore() {
         bindHistories()
-        bindSearchResult()
     }
     
     private func bindHistories() {
@@ -64,27 +84,6 @@ extension SearchViewController {
             .addDisposableTo(rx_disposeBag)
     }
     
-    private func bindSearchResult() {
-        let songs = store.songs.asObservable().filter { $0.count > 0 }
-        let playlists = store.playlists.asObservable().filter { $0.count > 0 }
-        let videos = store.videos.asObservable().filter { $0.count > 0 }
-        
-        Observable
-            .combineLatest(songs, playlists, videos) { songs, playlists, videos in
-                (songs: songs, playlists: playlists, videos: videos)
-            }
-            .subscribe(onNext: { songs, playlists, videos in
-                print("----------------")
-                print("Songs:")
-                print(songs)
-                print("Playlists")
-                print(playlists)
-                print("Videos:")
-                print(videos)
-            })
-            .addDisposableTo(rx_disposeBag)
-    }
-    
 }
 
 extension SearchViewController {
@@ -92,7 +91,7 @@ extension SearchViewController {
     func bindAction() {
         searchController.searchBar.rx.text.orEmpty
             .filter { $0.characters.count > 2 }
-            .throttle(0.5, scheduler: MainScheduler.instance)
+            .debounce(0.5, scheduler: MainScheduler.instance)
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] text in
                 self?.action.searchTextChange.execute(text)

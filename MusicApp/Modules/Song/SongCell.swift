@@ -27,5 +27,10 @@ class SongCell: UITableViewCell {
         singerLabel.text = singer
         contextButton.rx.action = contextAction
     }
+    
+    func configure(name: String, singer: String) {
+        nameLabel.text = name
+        singerLabel.text = singer
+    }
 
 }

@@ -79,14 +79,31 @@ class SearchModule: Module {
         
         // MARK: Domain Models
         
-        container.register(SearchService.self) { resolver in
+        container.register(SearchService.self) { [weak self] resolver in
+            let songModule = self?.parent?.songModule
+            
             return MASearchService(
-                loader: resolver.resolve(SearchLoader.self)!
+                loader: resolver.resolve(SearchLoader.self)!,
+                notification: songModule!.container.resolve(SongNotification.self)!,
+                coordinator: resolver.resolve(SearchCoordinator.self)!
             )
         }
         
         container.register(SearchLoader.self) { resolver in
             return MASearchLoader()
+        }
+        
+        container.register(SearchCoordinator.self) { resolver in
+            return MASearchCoordinator()
+        }.initCompleted { [weak self] resolver, coordinator in
+            let coordinator = coordinator as! MASearchCoordinator
+            coordinator.sourceController = resolver.resolve(SearchViewController.self)
+            
+            let playlistModule = self?.parent?.playlistModule
+            coordinator.getPlaylistController = { playlistModule?.container.resolve(PlaylistDetailViewController.self) }
+            
+            let videoModule = self?.parent?.videoModule
+            coordinator.getVideoController = { videoModule?.container.resolve(VideoDetailViewController.self) }
         }
         
     }

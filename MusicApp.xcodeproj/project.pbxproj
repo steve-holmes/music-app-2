@@ -116,6 +116,9 @@
 		9E5C968D1EFF77C80005182A /* AnimatedCircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5C968C1EFF77C80005182A /* AnimatedCircleImageView.swift */; };
 		9E5FA0F91F15C5BA007AD2ED /* SearchLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */; };
 		9E5FA0FC1F15C87B007AD2ED /* SearchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */; };
+		9E5FA0FE1F15F5AC007AD2ED /* SearchItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0FD1F15F5AC007AD2ED /* SearchItem.swift */; };
+		9E5FA1001F15FE21007AD2ED /* SearchGeneralSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA0FF1F15FE21007AD2ED /* SearchGeneralSectionHeaderView.swift */; };
+		9E5FA1021F160FE4007AD2ED /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5FA1011F160FE4007AD2ED /* SearchCoordinator.swift */; };
 		9E630C7B1F02AC9900C11B2B /* UIImage+Fade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E630C7A1F02AC9900C11B2B /* UIImage+Fade.swift */; };
 		9E69FE1B1F07E4150097D95A /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E69FE1A1F07E4150097D95A /* HomeCoordinator.swift */; };
 		9E69FE1D1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E69FE1C1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift */; };
@@ -445,6 +448,9 @@
 		9E5C968C1EFF77C80005182A /* AnimatedCircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnimatedCircleImageView.swift; path = Modules/Player/Views/AnimatedCircleImageView.swift; sourceTree = "<group>"; };
 		9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchLoader.swift; path = Modules/Search/SearchLoader.swift; sourceTree = "<group>"; };
 		9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchInfo.swift; path = Modules/Search/SearchInfo.swift; sourceTree = "<group>"; };
+		9E5FA0FD1F15F5AC007AD2ED /* SearchItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchItem.swift; path = Modules/Search/SearchItem.swift; sourceTree = "<group>"; };
+		9E5FA0FF1F15FE21007AD2ED /* SearchGeneralSectionHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchGeneralSectionHeaderView.swift; path = Modules/Search/Views/SearchGeneralSectionHeaderView.swift; sourceTree = "<group>"; };
+		9E5FA1011F160FE4007AD2ED /* SearchCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchCoordinator.swift; path = Modules/Search/SearchCoordinator.swift; sourceTree = "<group>"; };
 		9E630C7A1F02AC9900C11B2B /* UIImage+Fade.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+Fade.swift"; path = "Configurations/Extensions/UIImage+Fade.swift"; sourceTree = "<group>"; };
 		9E69FE1A1F07E4150097D95A /* HomeCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeCoordinator.swift; path = Modules/Home/HomeCoordinator.swift; sourceTree = "<group>"; };
 		9E69FE1C1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomePlaylistCollectionViewLayout.swift; path = Modules/Home/Views/HomePlaylistCollectionViewLayout.swift; sourceTree = "<group>"; };
@@ -756,6 +762,7 @@
 			isa = PBXGroup;
 			children = (
 				9E5FA0FB1F15C87B007AD2ED /* SearchInfo.swift */,
+				9E5FA0FD1F15F5AC007AD2ED /* SearchItem.swift */,
 			);
 			name = "Value Objects";
 			sourceTree = "<group>";
@@ -901,6 +908,7 @@
 			children = (
 				9EAEACF51F154F1F00BE6265 /* SearchHistoryCell.swift */,
 				9EAEACF31F153CDD00BE6265 /* Search.storyboard */,
+				9E5FA0FF1F15FE21007AD2ED /* SearchGeneralSectionHeaderView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -924,6 +932,7 @@
 			children = (
 				9EAEACF11F153B0A00BE6265 /* SearchService.swift */,
 				9E5FA0F81F15C5BA007AD2ED /* SearchLoader.swift */,
+				9E5FA1011F160FE4007AD2ED /* SearchCoordinator.swift */,
 			);
 			name = "Domain Models";
 			sourceTree = "<group>";
@@ -1833,6 +1842,7 @@
 				9E69FE1D1F07F50E0097D95A /* HomePlaylistCollectionViewLayout.swift in Sources */,
 				9E6E88D41EEF1C3800F89C95 /* SongService.swift in Sources */,
 				9E6E889F1EEF13C900F89C95 /* RankStore.swift in Sources */,
+				9E5FA1001F15FE21007AD2ED /* SearchGeneralSectionHeaderView.swift in Sources */,
 				9E97417A1EF2DCA9008F4304 /* VideoCell.swift in Sources */,
 				9E9A29F31F08CF4900D97692 /* VideoDetailService.swift in Sources */,
 				9E32FAE21F0577D20026F91E /* RankSongViewController.swift in Sources */,
@@ -1899,6 +1909,7 @@
 				9EF18A271EFB7AB200F263A1 /* RankService.swift in Sources */,
 				9E1768E51EF47CE90004F4F0 /* CategoryPresentationController.swift in Sources */,
 				9E4DA9F71EFD3CA30001A2D4 /* InformationPlayerViewController.swift in Sources */,
+				9E5FA0FE1F15F5AC007AD2ED /* SearchItem.swift in Sources */,
 				9E69FE1F1F08008C0097D95A /* HomePlaylistCellOptions.swift in Sources */,
 				9E45A8AA1F0E13C3004E17C5 /* OnlineSearchView.swift in Sources */,
 				9E90669A1F08988100E7181E /* HomeHeaderSectionView.swift in Sources */,
@@ -2027,6 +2038,7 @@
 				9E2E85A11EFE26CB00FB9059 /* PlayContainerView.swift in Sources */,
 				9E6E88C01EEF15A200F89C95 /* TrackRepository.swift in Sources */,
 				9E6E88C61EEF173000F89C95 /* Song.swift in Sources */,
+				9E5FA1021F160FE4007AD2ED /* SearchCoordinator.swift in Sources */,
 				9E7CBEC51EFEAE6300D4ABA5 /* PlayerProgressBar+Rx.swift in Sources */,
 				9EBCAED01F08ED7A00366CE9 /* VideoTrack.swift in Sources */,
 				9E25D0071EF7C87200743A06 /* SongContextPresentationController.swift in Sources */,
