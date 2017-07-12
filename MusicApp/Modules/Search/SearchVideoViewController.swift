@@ -65,7 +65,6 @@ extension SearchVideoViewController {
     func bindStore() {
         store.videos.asObservable()
             .filter { $0.count > 0 }
-            .filter { [weak self] _ in (self?.store.state.value ?? .all) == .video }
             .map { videos in [SectionModel(model: "Videos", items: videos)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(rx_disposeBag)
@@ -76,7 +75,11 @@ extension SearchVideoViewController {
 extension SearchVideoViewController {
     
     func bindAction() {
-        
+        tableView.rx.modelSelected(Video.self)
+            .subscribe(onNext: { [weak self] video in
+                self?.action.videoDidSelect.execute(video)
+            })
+            .addDisposableTo(rx_disposeBag)
     }
     
 }

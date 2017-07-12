@@ -140,15 +140,9 @@ extension SearchGeneralViewController {
     }
     
     private func bindSearchResult() {
-        let songs = store.songs.asObservable().filter { $0.count > 0 }
-        let playlists = store.playlists.asObservable().filter { $0.count > 0 }
-        let videos = store.videos.asObservable().filter { $0.count > 0 }
-        
-        Observable
-            .combineLatest(songs, playlists, videos) { songs, playlists, videos in
-                (songs: songs, playlists: playlists, videos: videos)
-            }
-            .filter { [weak self] _ in (self?.store.state.value ?? .all) == .all }
+        store.info.asObservable()
+            .map { ($0.songs ?? [], $0.playlists ?? [], $0.videos ?? []) }
+            .filter { !$0.0.isEmpty && !$0.1.isEmpty && !$0.2.isEmpty }
             .map { songs, playlists, videos in [
                 SectionModel(model: "Songs", items: songs.map { SearchItem.song($0) }),
                 SectionModel(model: "Playlists", items: playlists.map { SearchItem.playlist($0) }),

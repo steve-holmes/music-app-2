@@ -65,7 +65,6 @@ extension SearchPlaylistViewController {
     func bindStore() {
         store.playlists.asObservable()
             .filter { $0.count > 0 }
-            .filter { [weak self] _ in (self?.store.state.value ?? .all) == .playlist }
             .map { playlists in [SectionModel(model: "Playlists", items: playlists)] }
             .bind(to: tableView.rx.items(dataSource: dataSource))
             .addDisposableTo(rx_disposeBag)
@@ -76,7 +75,11 @@ extension SearchPlaylistViewController {
 extension SearchPlaylistViewController {
     
     func bindAction() {
-        
+        tableView.rx.modelSelected(Playlist.self)
+            .subscribe(onNext: { [weak self] playlist in
+                self?.action.playlistDidSelect.execute(playlist)
+            })
+            .addDisposableTo(rx_disposeBag)
     }
     
 }

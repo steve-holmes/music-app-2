@@ -40,48 +40,36 @@ class MASearchAction: SearchAction {
         return Action { [weak self] query in
             guard let this = self else { return .empty() }
             
-            switch this.store.state.value {
-            case .all:
-                return this.service.search(query)
-                    .do(onNext: { response in
-                        guard case let .item(info) = response else { return }
-                        
-                        if let songs = info.songs, !songs.isEmpty {
-                            this.store.songs.value = songs
-                        }
-                        if let playlists = info.playlists, !playlists.isEmpty {
-                            this.store.playlists.value = playlists
-                        }
-                        if let videos = info.videos, !videos.isEmpty {
-                            this.store.videos.value = videos
-                        }
-                    })
-                    .map { _ in }
-                
-            case .song:
-                return this.service.searchSong(query)
-                    .do(onNext: { response in
-                        guard case let .item(songs) = response else { return }
-                        this.store.songs.value = songs
-                    })
-                    .map { _ in }
-                
-            case .playlist:
-                return this.service.searchPlaylist(query)
-                    .do(onNext: { response in
-                        guard case let .item(playlists) = response else { return }
-                        this.store.playlists.value = playlists
-                    })
-                    .map { _ in }
-                
-            case .video:
-                return this.service.searchVideo(query)
-                    .do(onNext: { response in
-                        guard case let .item(videos) = response else { return }
-                        this.store.videos.value = videos
-                    })
-                    .map { _ in }
-            }
+            let allSearch = this.service.search(query)
+                .do(onNext: { response in
+                    guard case let .item(info) = response else { return }
+                    this.store.info.value = info
+                })
+                .map { _ in }
+            
+            let songSearch = this.service.searchSong(query)
+                .do(onNext: { response in
+                    guard case let .item(songs) = response else { return }
+                    this.store.songs.value = songs
+                })
+                .map { _ in }
+            
+            let playlistSearch = this.service.searchPlaylist(query)
+                .do(onNext: { response in
+                    guard case let .item(playlists) = response else { return }
+                    this.store.playlists.value = playlists
+                })
+                .map { _ in }
+            
+            let videoSearch = this.service.searchVideo(query)
+                .do(onNext: { response in
+                    guard case let .item(videos) = response else { return }
+                    this.store.videos.value = videos
+                })
+                .map { _ in }
+            
+            return Observable
+                .zip(allSearch, songSearch, playlistSearch, videoSearch) { _ in return }
         }
     }()
     
