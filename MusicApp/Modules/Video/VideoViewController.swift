@@ -179,6 +179,12 @@ extension VideoViewController {
             .map { [weak self] _ in self!.store.category.value.link }
             .subscribe(action.onLoadMore.inputs)
             .addDisposableTo(rx_disposeBag)
+        
+        tableView.rx.modelSelected(Video.self)
+            .subscribe(onNext: { [weak self] video in
+                self?.action.videoDidSelect.execute(video)
+            })
+            .addDisposableTo(rx_disposeBag)
     }
     
 }

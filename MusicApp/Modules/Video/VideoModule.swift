@@ -65,6 +65,7 @@ class VideoModule: Module {
             return MAVideoService(
                 repository: resolver.resolve(VideoRepository.self)!,
                 category: categoryModule!.container.resolve(CategoryRepository.self)!,
+                coordinator: resolver.resolve(VideoCoordinator.self)!,
                 categoryCoordinator: categoryModule!.container.resolve(CategoryCoordinator.self)!
             )
         }.initCompleted { resolver, playlistService in
@@ -85,6 +86,14 @@ class VideoModule: Module {
         
         container.register(VideoLoader.self) { resolver in
             return MAVideoLoader()
+        }
+        
+        container.register(VideoCoordinator.self) { resolver in
+            return MAVideoCoordinator()
+        }.initCompleted { resolver, coordinator in
+            let coordinator = coordinator as! MAVideoCoordinator
+            coordinator.sourceController = resolver.resolve(VideoViewController.self)
+            coordinator.getVideoDetailController = { resolver.resolve(VideoDetailViewController.self) }
         }
         
         container.register(VideoDetailService.self) { resolver in

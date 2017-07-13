@@ -26,6 +26,7 @@ protocol SingerDetailService {
     // MARK: Coordinator
     
     func presentPlaylist(_ playlist: Playlist, in controller: UIViewController) -> Observable<Void>
+    func presentVideo(_ video: Video, in controller: UIViewController) -> Observable<Void>
     func openContextMenu(_ song: Song, in controller: UIViewController) -> Observable<Void>
     
 }
@@ -64,6 +65,10 @@ class MASingerDetailService: SingerDetailService {
     
     func presentPlaylist(_ playlist: Playlist, in controller: UIViewController) -> Observable<Void> {
         return coordinator.presentPlaylist(playlist, in: controller)
+    }
+    
+    func presentVideo(_ video: Video, in controller: UIViewController) -> Observable<Void> {
+        return coordinator.presentVideo(video, in: controller)
     }
     
     func openContextMenu(_ song: Song, in controller: UIViewController) -> Observable<Void> {

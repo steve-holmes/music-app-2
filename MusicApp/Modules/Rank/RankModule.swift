@@ -174,7 +174,18 @@ class RankModule: Module {
         }
         
         container.register(RankVideoService.self) { resolver in
-            return MARankVideoService()
+            return MARankVideoService(
+                coordinator: resolver.resolve(RankVideoCoordinator.self)!
+            )
+        }
+        
+        container.register(RankVideoCoordinator.self) { resolver in
+            return MARankVideoCoordinator()
+        }.initCompleted { [weak self] resolver, coordinator in
+            let coordinator = coordinator as! MARankVideoCoordinator
+            coordinator.getVideoController = {
+                self?.parent?.videoModule.container.resolve(VideoDetailViewController.self)
+            }
         }
     }
     

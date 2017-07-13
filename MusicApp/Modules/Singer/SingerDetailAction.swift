@@ -19,7 +19,7 @@ protocol SingerDetailAction {
     
     var onSongDidSelect: Action<Song, Void> { get }
     var onPlaylistDidSelect: Action<(Playlist, UIViewController), Void> { get }
-    var onVideoDidSelect: Action<Video, Void> { get }
+    var onVideoDidSelect: Action<(Video, UIViewController), Void> { get }
     
     var onContextMenuOpen: Action<(Song, UIViewController), Void> { get }
     
@@ -68,9 +68,10 @@ class MASingerDetailAction: SingerDetailAction {
         }
     }()
     
-    lazy var onVideoDidSelect: Action<Video, Void> = {
-        return Action { _ in
-            return .empty()
+    lazy var onVideoDidSelect: Action<(Video, UIViewController), Void> = {
+        return Action { [weak self] info in
+            let (video, controller) = info
+            return self?.service.presentVideo(video, in: controller) ?? .empty()
         }
     }()
     

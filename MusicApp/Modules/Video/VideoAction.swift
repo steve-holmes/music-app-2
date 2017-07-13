@@ -20,6 +20,8 @@ protocol VideoAction {
     var onLoadCategories: CocoaAction { get }
     var onCategoriesButtonTap: Action<Void, CategoryInfo?> { get }
     
+    var videoDidSelect: Action<Video, Void> { get }
+    
 }
 
 class MAVideoAction: VideoAction {
@@ -115,6 +117,12 @@ class MAVideoAction: VideoAction {
                 category: this.store.category.value,
                 infos: this.store.categories.value
             )
+        }
+    }()
+    
+    lazy var videoDidSelect: Action<Video, Void> = {
+        return Action { [weak self] video in
+            self?.service.presentVideoDetail(video) ?? .empty()
         }
     }()
     

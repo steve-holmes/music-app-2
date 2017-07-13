@@ -27,6 +27,7 @@ protocol VideoService {
     // MARK: Coordinator
     
     func presentCategories(category: CategoryInfo, infos: [CategoriesInfo]) -> Observable<CategoryInfo?>
+    func presentVideoDetail(_ video: Video) -> Observable<Void>
     
 }
 
@@ -35,10 +36,12 @@ class MAVideoService: VideoService {
     let repository: VideoRepository
     let category: CategoryRepository
     let categoryCoordinator: CategoryCoordinator
+    let coordinator: VideoCoordinator
     
-    init(repository: VideoRepository, category: CategoryRepository, categoryCoordinator: CategoryCoordinator) {
+    init(repository: VideoRepository, category: CategoryRepository, coordinator: VideoCoordinator, categoryCoordinator: CategoryCoordinator) {
         self.repository = repository
         self.category = category
+        self.coordinator = coordinator
         self.categoryCoordinator = categoryCoordinator
     }
     
@@ -71,6 +74,11 @@ class MAVideoService: VideoService {
                 observer.onCompleted()
             }
             return Disposables.create()
-        }    }
+        }
+    }
+    
+    func presentVideoDetail(_ video: Video) -> Observable<Void> {
+        return coordinator.presentVideoDetail(video)
+    }
     
 }

@@ -10,8 +10,20 @@ import RxSwift
 
 protocol RankVideoService {
     
+    func presentVideo(_ video: Video, in controller: UIViewController) -> Observable<Void>
+    
 }
 
 class MARankVideoService: RankVideoService {
+    
+    let coordinator: RankVideoCoordinator
+    
+    init(coordinator: RankVideoCoordinator) {
+        self.coordinator = coordinator
+    }
+    
+    func presentVideo(_ video: Video, in controller: UIViewController) -> Observable<Void> {
+        return coordinator.presentVideo(video, in: controller)
+    }
     
 }

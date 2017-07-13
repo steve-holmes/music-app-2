@@ -121,7 +121,12 @@ extension RankVideoViewController {
 extension RankVideoViewController {
     
     func bindAction() {
-        
+        tableView.rx.modelSelected(Video.self)
+            .subscribe(onNext: { [weak self] video in
+                guard let this = self else { return }
+                this.action.videoDidSelect.execute((video, this))
+            })
+            .addDisposableTo(rx_disposeBag)
     }
     
 }

@@ -300,6 +300,8 @@ extension SingerDetailViewController {
             .filter { $0 != nil }
             .map { $0! }
             .filter { video in !video.id.isEmpty }
+            .filter { [weak self] _ in self != nil }
+            .map { [weak self] in ($0, self!) }
             .subscribe(action.onVideoDidSelect.inputs)
             .addDisposableTo(rx_disposeBag)
     }

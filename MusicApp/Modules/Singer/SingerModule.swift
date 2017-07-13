@@ -114,8 +114,11 @@ class SingerModule: Module {
             return MASingerDetailCoordinator()
         }.initCompleted { [weak self] resolver, coordinator in
             let coordinator = coordinator as! MASingerDetailCoordinator
-            coordinator.getController = {
+            coordinator.getPlaylistController = {
                 return self?.parent?.playlistModule.container.resolve(PlaylistDetailViewController.self)
+            }
+            coordinator.getVideoController = {
+                return self?.parent?.videoModule.container.resolve(VideoDetailViewController.self)
             }
         }
     }

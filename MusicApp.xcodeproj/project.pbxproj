@@ -52,6 +52,8 @@
 		9E25D0071EF7C87200743A06 /* SongContextPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */; };
 		9E29B5AC1F17277700140D10 /* UISearchController+isActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */; };
 		9E29B5AE1F17384400140D10 /* RankSongCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AD1F17384400140D10 /* RankSongCoordinator.swift */; };
+		9E29B5B01F17472900140D10 /* VideoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AF1F17472900140D10 /* VideoCoordinator.swift */; };
+		9E29B5B21F174B8100140D10 /* RankVideoCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5B11F174B8100140D10 /* RankVideoCoordinator.swift */; };
 		9E2E859E1EFE26A500FB9059 /* PlayCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */; };
 		9E2E85A11EFE26CB00FB9059 /* PlayContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */; };
 		9E2E85A21EFE26CB00FB9059 /* PlayerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */; };
@@ -388,6 +390,8 @@
 		9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongContextPresentationController.swift; path = Modules/Song/SongContextPresentationController.swift; sourceTree = "<group>"; };
 		9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISearchController+isActive.swift"; path = "Configurations/Extensions/UISearchController+isActive.swift"; sourceTree = "<group>"; };
 		9E29B5AD1F17384400140D10 /* RankSongCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankSongCoordinator.swift; path = Modules/Rank/RankSongCoordinator.swift; sourceTree = "<group>"; };
+		9E29B5AF1F17472900140D10 /* VideoCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoCoordinator.swift; path = Modules/Video/VideoCoordinator.swift; sourceTree = "<group>"; };
+		9E29B5B11F174B8100140D10 /* RankVideoCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankVideoCoordinator.swift; path = Modules/Video/RankVideoCoordinator.swift; sourceTree = "<group>"; };
 		9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayCenterView.swift; path = Modules/Player/Views/PlayCenterView.swift; sourceTree = "<group>"; };
 		9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayContainerView.swift; path = Modules/Player/Views/PlayContainerView.swift; sourceTree = "<group>"; };
 		9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStorage.swift; path = Modules/Player/Views/PlayerStorage.swift; sourceTree = "<group>"; };
@@ -1504,6 +1508,7 @@
 				9E6E88E81EEF210800F89C95 /* VideoService.swift */,
 				9E6E88EA1EEF212200F89C95 /* VideoRepository.swift */,
 				9E6E88EC1EEF212E00F89C95 /* VideoLoader.swift */,
+				9E29B5AF1F17472900140D10 /* VideoCoordinator.swift */,
 				9E9A29F21F08CF4900D97692 /* VideoDetailService.swift */,
 				9E9A29F61F08DA5E00D97692 /* VideoDetailLoader.swift */,
 				9E37BB6F1F0AC3DB00421E53 /* VideoPlayer.swift */,
@@ -1538,6 +1543,7 @@
 				9E4049681F06209400667E6E /* RankPlaylistService.swift */,
 				9E40496A1F0620A700667E6E /* RankPlaylistCoordinator.swift */,
 				9E40496E1F06233A00667E6E /* RankVideoService.swift */,
+				9E29B5B11F174B8100140D10 /* RankVideoCoordinator.swift */,
 			);
 			name = "Domain Models";
 			sourceTree = "<group>";
@@ -1840,6 +1846,7 @@
 				9E6E88901EEF135300F89C95 /* SongViewController.swift in Sources */,
 				9E1768E71EF47D5A0004F4F0 /* CategoryAnimationOptions.swift in Sources */,
 				9ED54BA51EFAF3FB00E0B717 /* SingerDetailSection.swift in Sources */,
+				9E29B5B01F17472900140D10 /* VideoCoordinator.swift in Sources */,
 				9E561EFF1F08B969002086DD /* VideoDetailStore.swift in Sources */,
 				9E17B3B51EF29DAB0099C52C /* SongDataSource.swift in Sources */,
 				9E32FAD01F05584E0026F91E /* RankPlaylistStore.swift in Sources */,
@@ -2023,6 +2030,7 @@
 				9E561EFD1F08B6B3002086DD /* VideoDetailViewController.swift in Sources */,
 				9E2570A11F000C3800995913 /* SelectedLyricCell.swift in Sources */,
 				9E44635C1F02607B0007905B /* TimerInfo.swift in Sources */,
+				9E29B5B21F174B8100140D10 /* RankVideoCoordinator.swift in Sources */,
 				9EAEACF61F154F1F00BE6265 /* SearchHistoryCell.swift in Sources */,
 				9ED54B8D1EFA642500E0B717 /* SingerDetailService.swift in Sources */,
 				9E2570A71F000F3B00995913 /* LyricService.swift in Sources */,
