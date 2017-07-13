@@ -140,7 +140,8 @@ class RankModule: Module {
             let playlistModule = self.parent?.playlistModule
             return MARankSongSerivce(
                 repository: resolver.resolve(RankSongRepository.self)!,
-                notification: playlistModule!.container.resolve(PlaylistNotification.self)!
+                notification: playlistModule!.container.resolve(PlaylistNotification.self)!,
+                coordinator: resolver.resolve(RankSongCoordinator.self)!
             )
         }
         
@@ -152,6 +153,10 @@ class RankModule: Module {
         
         container.register(RankSongLoader.self) { resolver in
             return MARankSongLoader()
+        }
+        
+        container.register(RankSongCoordinator.self) { resolver in
+            return MARankSongCoordinator()
         }
         
         container.register(RankPlaylistService.self) { resolver in

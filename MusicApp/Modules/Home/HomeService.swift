@@ -20,6 +20,8 @@ protocol HomeService {
     func presentVideo(_ video: Video) -> Observable<Void>
     func presentTopic(_ topic: Topic) -> Observable<Void>
     
+    func openContextMenu(_ song: Song) -> Observable<Void>
+    
     // MARK: Notification
     
     func play(_ song: Song) -> Observable<Void>
@@ -60,6 +62,10 @@ class MAHomeService: HomeService {
     
     func presentTopic(_ topic: Topic) -> Observable<Void> {
         return coordinator.presentTopic(topic)
+    }
+    
+    func openContextMenu(_ song: Song) -> Observable<Void> {
+        return coordinator.openContextMenu(song)
     }
     
     // MARK: Notification

@@ -37,6 +37,14 @@ struct Track {
     
 }
 
+extension Track {
+    
+    var song: Song {
+        return Song(id: id, name: name, singer: singer)
+    }
+    
+}
+
 extension Track: Equatable {
     
     static func == (lhs: Track, rhs: Track) -> Bool {

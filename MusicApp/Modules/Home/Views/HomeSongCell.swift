@@ -26,6 +26,7 @@ class HomeSongCell: UITableViewCell {
     }
     
     var onSongDidSelect: Action<Song, Void>!
+    var onContextButtonTap: Action<Song, Void>!
 
 }
 
@@ -40,8 +41,8 @@ extension HomeSongCell: UITableViewDataSource {
         
         if let cell = cell as? SongCell {
             let song = songs[indexPath.row]
-            let contextAction = CocoaAction {
-                return .empty()
+            let contextAction = CocoaAction { _ in
+                self.onContextButtonTap.execute(song).map { _ in }
             }
             cell.configure(name: song.name, singer: song.singer, contextAction: contextAction)
         }

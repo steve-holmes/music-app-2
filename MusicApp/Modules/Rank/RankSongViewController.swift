@@ -74,10 +74,10 @@ class RankSongViewController: UIViewController {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: RankSongCell.self), for: indexPath)
             if let cell = cell as? RankSongCell {
-                let buttonAction = CocoaAction {
-                    return .empty()
+                let contextAction = CocoaAction { _ in
+                    return self.action.onContextButtonTap.execute((track.song, self)).map { _ in }
                 }
-                cell.configure(name: track.name, singer: track.singer, contextAction: buttonAction)
+                cell.configure(name: track.name, singer: track.singer, contextAction: contextAction)
                 cell.rank = indexPath.row + 1
             }
             return cell

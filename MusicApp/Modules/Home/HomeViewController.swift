@@ -83,6 +83,7 @@ class HomeViewController: UIViewController {
     private lazy var songCell: HomeSongCell = {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: String(describing: HomeSongCell.self)) as! HomeSongCell
         cell.onSongDidSelect = self.action.onSongDidSelect()
+        cell.onContextButtonTap = self.action.onContextButtonTap()
         return cell
     }()
     

@@ -14,9 +14,11 @@ protocol HomeCoordinator {
     func presentVideo(_ video: Video) -> Observable<Void>
     func presentTopic(_ topic: Topic) -> Observable<Void>
     
+    func openContextMenu(_ song: Song) -> Observable<Void>
+    
 }
 
-class MAHomeCoordinator: HomeCoordinator {
+class MAHomeCoordinator: NSObject, HomeCoordinator {
     
     weak var sourceController: HomeViewController?
     var getPlaylistController: (() -> PlaylistDetailViewController?)?
@@ -51,6 +53,36 @@ class MAHomeCoordinator: HomeCoordinator {
         sourceController.show(destinationController, sender: nil)
         
         return .empty()
+    }
+    
+    func openContextMenu(_ song: Song) -> Observable<Void> {
+        guard let sourceController = sourceController else { return .empty() }
+        let controller = UIStoryboard.song.controller(of: SongContextMenuViewController.self)
+        
+        controller.song = song
+        
+        controller.transitioningDelegate = self
+        controller.modalPresentationStyle = .custom
+        
+        sourceController.present(controller, animated: true, completion: nil)
+        
+        return .empty()
+    }
+    
+}
+
+extension MAHomeCoordinator: UIViewControllerTransitioningDelegate {
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return nil
+    }
+    
+    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
+        return SongContextPresentationController(presentedViewController: presented, presenting: presenting)
     }
     
 }

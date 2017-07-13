@@ -51,6 +51,7 @@
 		9E25D0041EF79B8200743A06 /* SongContextMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0031EF79B8200743A06 /* SongContextMenuViewController.swift */; };
 		9E25D0071EF7C87200743A06 /* SongContextPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */; };
 		9E29B5AC1F17277700140D10 /* UISearchController+isActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */; };
+		9E29B5AE1F17384400140D10 /* RankSongCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AD1F17384400140D10 /* RankSongCoordinator.swift */; };
 		9E2E859E1EFE26A500FB9059 /* PlayCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */; };
 		9E2E85A11EFE26CB00FB9059 /* PlayContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */; };
 		9E2E85A21EFE26CB00FB9059 /* PlayerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */; };
@@ -386,6 +387,7 @@
 		9E25D0031EF79B8200743A06 /* SongContextMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongContextMenuViewController.swift; path = Modules/Song/SongContextMenuViewController.swift; sourceTree = "<group>"; };
 		9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongContextPresentationController.swift; path = Modules/Song/SongContextPresentationController.swift; sourceTree = "<group>"; };
 		9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISearchController+isActive.swift"; path = "Configurations/Extensions/UISearchController+isActive.swift"; sourceTree = "<group>"; };
+		9E29B5AD1F17384400140D10 /* RankSongCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankSongCoordinator.swift; path = Modules/Rank/RankSongCoordinator.swift; sourceTree = "<group>"; };
 		9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayCenterView.swift; path = Modules/Player/Views/PlayCenterView.swift; sourceTree = "<group>"; };
 		9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayContainerView.swift; path = Modules/Player/Views/PlayContainerView.swift; sourceTree = "<group>"; };
 		9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStorage.swift; path = Modules/Player/Views/PlayerStorage.swift; sourceTree = "<group>"; };
@@ -1532,6 +1534,7 @@
 				9E40496C1F06231900667E6E /* RankSongService.swift */,
 				9EFED8971F06497E0066F559 /* RankSongRepository.swift */,
 				9EFED8991F0649910066F559 /* RankSongLoader.swift */,
+				9E29B5AD1F17384400140D10 /* RankSongCoordinator.swift */,
 				9E4049681F06209400667E6E /* RankPlaylistService.swift */,
 				9E40496A1F0620A700667E6E /* RankPlaylistCoordinator.swift */,
 				9E40496E1F06233A00667E6E /* RankVideoService.swift */,
@@ -1870,6 +1873,7 @@
 				9E85DFA71F04E31E003800E5 /* OnlineNavigationController.swift in Sources */,
 				9EFA2D1B1EF429E900DE4184 /* CategoriesCell.swift in Sources */,
 				9EDAFD5A1EEB0A04008BA357 /* MainTabItemView.swift in Sources */,
+				9E29B5AE1F17384400140D10 /* RankSongCoordinator.swift in Sources */,
 				9E70DCD41F077F2B000661D9 /* HomeInfo.swift in Sources */,
 				9EDAFD421EEAEE66008BA357 /* UserStore.swift in Sources */,
 				9E32FAC61F05287B0026F91E /* TopicDetailLoader.swift in Sources */,

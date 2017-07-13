@@ -6,6 +6,7 @@
 //  Copyright © 2017 HungDo. All rights reserved.
 //
 
+import UIKit
 import RxSwift
 import Action
 
@@ -17,6 +18,8 @@ protocol RankSongAction {
     
     func onPlayButtonPress() -> CocoaAction
     var onTrackDidSelect: Action<Track, Void> { get }
+    
+    var onContextButtonTap: Action<(Song, UIViewController), Void> { get }
     
 }
 
@@ -58,6 +61,12 @@ class MARankSongAction: RankSongAction {
                 tracks: this.store.tracks.value,
                 selectedTrack: track
             )
+        }
+    }()
+    
+    lazy var onContextButtonTap: Action<(Song, UIViewController), Void>  = {
+        return Action { [weak self] song, controller in
+            return self?.service.openContextMenu(song, in: controller) ?? .empty()
         }
     }()
     

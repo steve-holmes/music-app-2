@@ -22,6 +22,8 @@ protocol HomeAction {
     func onTopicDidSelect() -> Action<Topic, Void>
     func onSongDidSelect() -> Action<Song, Void>
     
+    func onContextButtonTap() -> Action<Song, Void>
+    
 }
 
 class MAHomeAction: HomeAction {
@@ -78,6 +80,12 @@ class MAHomeAction: HomeAction {
     func onSongDidSelect() -> Action<Song, Void> {
         return Action { [weak self] song in
             self?.service.play(song) ?? .empty()
+        }
+    }
+    
+    func onContextButtonTap() -> Action<Song, Void> {
+        return Action { [weak self] song in
+            return self?.service.openContextMenu(song) ?? .empty()
         }
     }
     
