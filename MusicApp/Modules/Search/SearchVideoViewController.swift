@@ -17,6 +17,8 @@ class SearchVideoViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var searchController: UISearchController!
+    
     var store: SearchStore!
     var action: SearchAction!
 
@@ -77,7 +79,7 @@ extension SearchVideoViewController {
     func bindAction() {
         tableView.rx.modelSelected(Video.self)
             .subscribe(onNext: { [weak self] video in
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.videoDidSelect.execute(video)
             })
             .addDisposableTo(rx_disposeBag)

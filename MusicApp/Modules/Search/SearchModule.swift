@@ -62,6 +62,8 @@ class SearchModule: Module {
             controller.store = resolver.resolve(SearchStore.self)!
             controller.action = resolver.resolve(SearchAction.self)!
             
+            controller.searchController = resolver.resolve(UISearchController.self)!
+            
             return controller
         }
         
@@ -70,6 +72,8 @@ class SearchModule: Module {
             
             controller.store = resolver.resolve(SearchStore.self)!
             controller.action = resolver.resolve(SearchAction.self)!
+            
+            controller.searchController = resolver.resolve(UISearchController.self)!
             
             return controller
         }
@@ -80,6 +84,8 @@ class SearchModule: Module {
             controller.store = resolver.resolve(SearchStore.self)!
             controller.action = resolver.resolve(SearchAction.self)!
             
+            controller.searchController = resolver.resolve(UISearchController.self)!
+            
             return controller
         }
         
@@ -88,6 +94,8 @@ class SearchModule: Module {
             
             controller.store = resolver.resolve(SearchStore.self)!
             controller.action = resolver.resolve(SearchAction.self)!
+            
+            controller.searchController = resolver.resolve(UISearchController.self)!
             
             return controller
         }

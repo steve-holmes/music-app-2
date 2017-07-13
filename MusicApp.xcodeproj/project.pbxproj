@@ -50,6 +50,7 @@
 		9E25D0021EF7607300743A06 /* InitialActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0011EF7607300743A06 /* InitialActivityIndicatorView.swift */; };
 		9E25D0041EF79B8200743A06 /* SongContextMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0031EF79B8200743A06 /* SongContextMenuViewController.swift */; };
 		9E25D0071EF7C87200743A06 /* SongContextPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */; };
+		9E29B5AC1F17277700140D10 /* UISearchController+isActive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */; };
 		9E2E859E1EFE26A500FB9059 /* PlayCenterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */; };
 		9E2E85A11EFE26CB00FB9059 /* PlayContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */; };
 		9E2E85A21EFE26CB00FB9059 /* PlayerStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */; };
@@ -384,6 +385,7 @@
 		9E25D0011EF7607300743A06 /* InitialActivityIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialActivityIndicatorView.swift; path = Modules/Online/Views/InitialActivityIndicatorView.swift; sourceTree = "<group>"; };
 		9E25D0031EF79B8200743A06 /* SongContextMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongContextMenuViewController.swift; path = Modules/Song/SongContextMenuViewController.swift; sourceTree = "<group>"; };
 		9E25D0061EF7C87200743A06 /* SongContextPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SongContextPresentationController.swift; path = Modules/Song/SongContextPresentationController.swift; sourceTree = "<group>"; };
+		9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UISearchController+isActive.swift"; path = "Configurations/Extensions/UISearchController+isActive.swift"; sourceTree = "<group>"; };
 		9E2E859D1EFE26A500FB9059 /* PlayCenterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayCenterView.swift; path = Modules/Player/Views/PlayCenterView.swift; sourceTree = "<group>"; };
 		9E2E859F1EFE26CB00FB9059 /* PlayContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayContainerView.swift; path = Modules/Player/Views/PlayContainerView.swift; sourceTree = "<group>"; };
 		9E2E85A01EFE26CB00FB9059 /* PlayerStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PlayerStorage.swift; path = Modules/Player/Views/PlayerStorage.swift; sourceTree = "<group>"; };
@@ -1178,6 +1180,7 @@
 				9EDAFD611EEB0CBB008BA357 /* UIViewController+Container.swift */,
 				9E2570961EFFD95B00995913 /* CMTime+Valid.swift */,
 				9E630C7A1F02AC9900C11B2B /* UIImage+Fade.swift */,
+				9E29B5AB1F17277700140D10 /* UISearchController+isActive.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -2090,6 +2093,7 @@
 				9E32FAE91F057E5B0026F91E /* RankVideoAction.swift in Sources */,
 				9EFED89A1F0649910066F559 /* RankSongLoader.swift in Sources */,
 				9EAEACF01F153AB900BE6265 /* SearchAction.swift in Sources */,
+				9E29B5AC1F17277700140D10 /* UISearchController+isActive.swift in Sources */,
 				9EDAFD581EEB09F4008BA357 /* MainTabBarView.swift in Sources */,
 				9EF18A2B1EFB7FC900F263A1 /* RankRepository.swift in Sources */,
 				9EFA2D191EF4290B00DE4184 /* CategoryViewController.swift in Sources */,

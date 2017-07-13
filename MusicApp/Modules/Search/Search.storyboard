@@ -25,9 +25,48 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0n-hb-cFY" userLabel="Search View">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKf-rX-2hj">
+                                        <rect key="frame" x="44" y="0.0" width="331" height="44"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G6d-Y5-9WB">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="left_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="RF3-go-D5s">
+                                                <rect key="frame" x="11" y="11" width="22" height="22"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="RF3-go-D5s" secondAttribute="height" id="T0i-3H-wKl"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iI-LG-gBr">
+                                                <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                                <connections>
+                                                    <action selector="backButtonTapped:" destination="hV8-P1-X46" eventType="touchUpInside" id="rAG-8t-Hdb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="RF3-go-D5s" firstAttribute="centerY" secondItem="G6d-Y5-9WB" secondAttribute="centerY" id="BHN-yx-7ab"/>
+                                            <constraint firstAttribute="width" secondItem="G6d-Y5-9WB" secondAttribute="height" id="IE8-Xg-ags"/>
+                                            <constraint firstItem="6iI-LG-gBr" firstAttribute="top" secondItem="G6d-Y5-9WB" secondAttribute="top" id="PB4-Oa-aQ8"/>
+                                            <constraint firstItem="6iI-LG-gBr" firstAttribute="leading" secondItem="G6d-Y5-9WB" secondAttribute="leading" id="U9b-qo-lNs"/>
+                                            <constraint firstAttribute="bottom" secondItem="6iI-LG-gBr" secondAttribute="bottom" id="Zqo-gS-MBW"/>
+                                            <constraint firstItem="RF3-go-D5s" firstAttribute="width" secondItem="G6d-Y5-9WB" secondAttribute="width" multiplier="1:2" id="eEM-LD-NYQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="6iI-LG-gBr" secondAttribute="trailing" id="jEU-KN-bHR"/>
+                                            <constraint firstItem="RF3-go-D5s" firstAttribute="centerX" secondItem="G6d-Y5-9WB" secondAttribute="centerX" id="opE-Nm-DF5"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="WKf-rX-2hj" firstAttribute="leading" secondItem="G6d-Y5-9WB" secondAttribute="trailing" id="2Yy-Cl-Ee6"/>
+                                    <constraint firstItem="G6d-Y5-9WB" firstAttribute="top" secondItem="C0n-hb-cFY" secondAttribute="top" id="DeN-Rz-8JM"/>
+                                    <constraint firstAttribute="bottom" secondItem="G6d-Y5-9WB" secondAttribute="bottom" id="GJB-vN-7g4"/>
+                                    <constraint firstItem="G6d-Y5-9WB" firstAttribute="leading" secondItem="C0n-hb-cFY" secondAttribute="leading" id="MQo-dD-8Ji"/>
+                                    <constraint firstItem="WKf-rX-2hj" firstAttribute="top" secondItem="C0n-hb-cFY" secondAttribute="top" id="WZp-e0-ISp"/>
                                     <constraint firstAttribute="height" constant="44" id="g2j-0q-pHa"/>
+                                    <constraint firstAttribute="bottom" secondItem="WKf-rX-2hj" secondAttribute="bottom" id="hYj-iP-uiy"/>
+                                    <constraint firstAttribute="trailing" secondItem="WKf-rX-2hj" secondAttribute="trailing" id="vRj-ha-IsH"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ypM-if-60R" userLabel="Search Result View">
@@ -204,16 +243,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="backView" destination="G6d-Y5-9WB" id="dpD-84-WGO"/>
                         <outlet property="containerView" destination="7bn-cn-Jez" id="Ay7-De-qB7"/>
                         <outlet property="historyTableView" destination="M1G-1d-v69" id="8vw-jf-91t"/>
                         <outlet property="historyView" destination="cFh-Xv-htM" id="SC0-u8-Eda"/>
-                        <outlet property="searchView" destination="C0n-hb-cFY" id="2Cn-xG-ZcQ"/>
+                        <outlet property="searchContainerView" destination="C0n-hb-cFY" id="C4O-bt-bOM"/>
+                        <outlet property="searchView" destination="WKf-rX-2hj" id="549-wd-gsM"/>
                         <outlet property="segmentedControl" destination="Tig-Sf-Ue1" id="ahT-mV-QYI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BcP-YF-iye" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1116" y="152"/>
+            <point key="canvasLocation" x="-1116" y="151.57421289355324"/>
         </scene>
         <!--Search General View Controller-->
         <scene sceneID="Afn-HV-d6b">
@@ -759,6 +800,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="left_arrow" width="25" height="25"/>
         <image name="song_more" width="80" height="80"/>
     </resources>
 </document>

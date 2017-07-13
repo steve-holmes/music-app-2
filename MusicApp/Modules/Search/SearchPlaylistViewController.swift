@@ -17,6 +17,8 @@ class SearchPlaylistViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var searchController: UISearchController!
+    
     var store: SearchStore!
     var action: SearchAction!
 
@@ -77,7 +79,7 @@ extension SearchPlaylistViewController {
     func bindAction() {
         tableView.rx.modelSelected(Playlist.self)
             .subscribe(onNext: { [weak self] playlist in
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.playlistDidSelect.execute(playlist)
             })
             .addDisposableTo(rx_disposeBag)

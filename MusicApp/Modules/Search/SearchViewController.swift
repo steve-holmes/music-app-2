@@ -18,6 +18,8 @@ class SearchViewController: SegmentedPagerTabStripViewController {
     @IBOutlet weak var historyTableView: UITableView!
     @IBOutlet weak var historyView: UIView!
     @IBOutlet weak var searchView: UIView!
+    @IBOutlet weak var backView: UIView!
+    @IBOutlet weak var searchContainerView: UIView!
     
     var searchController: UISearchController!
     
@@ -28,8 +30,7 @@ class SearchViewController: SegmentedPagerTabStripViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchView.addSubview(searchController.searchBar)
-        self.definesPresentationContext = true
+        configureSearchBar()
         
         bindStore()
         bindAction()
@@ -44,6 +45,16 @@ class SearchViewController: SegmentedPagerTabStripViewController {
         case 3: action.searchStateChange.execute(.video)
         default: break
         }
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func configureSearchBar() {
+        searchView.addSubview(searchController.searchBar)
+        searchController.searchBar.frame = searchView.bounds
+        self.definesPresentationContext = true
     }
     
     override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {

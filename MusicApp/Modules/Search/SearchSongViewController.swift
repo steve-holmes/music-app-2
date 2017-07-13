@@ -18,6 +18,8 @@ class SearchSongViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var searchController: UISearchController!
+    
     var store: SearchStore!
     var action: SearchAction!
 
@@ -81,7 +83,7 @@ extension SearchSongViewController {
     func bindAction() {
         tableView.rx.modelSelected(Song.self)
             .subscribe(onNext: { [weak self] song in
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.songDidSelect.execute(song)
             })
             .addDisposableTo(rx_disposeBag)

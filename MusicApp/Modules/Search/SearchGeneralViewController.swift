@@ -18,6 +18,8 @@ class SearchGeneralViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    var searchController: UISearchController!
+    
     var store: SearchStore!
     var action: SearchAction!
 
@@ -166,7 +168,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] song in
                 guard let song = song else { return }
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.songDidSelect.execute(song)
             })
             .addDisposableTo(rx_disposeBag)
@@ -180,7 +182,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] playlist in
                 guard let playlist = playlist else { return }
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.playlistDidSelect.execute(playlist)
             })
             .addDisposableTo(rx_disposeBag)
@@ -194,7 +196,7 @@ extension SearchGeneralViewController {
             }
             .subscribe(onNext: { [weak self] video in
                 guard let video = video else { return }
-                self?.view.endEditing(true)
+                self?.searchController.setInactive()
                 self?.action.videoDidSelect.execute(video)
             })
             .addDisposableTo(rx_disposeBag)
