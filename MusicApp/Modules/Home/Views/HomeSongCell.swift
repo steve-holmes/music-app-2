@@ -41,8 +41,8 @@ extension HomeSongCell: UITableViewDataSource {
         
         if let cell = cell as? SongCell {
             let song = songs[indexPath.row]
-            let contextAction = CocoaAction { _ in
-                self.onContextButtonTap.execute(song).map { _ in }
+            let contextAction = CocoaAction { [weak self] _ in
+                self?.onContextButtonTap.execute(song).map { _ in } ?? .empty()
             }
             cell.configure(name: song.name, singer: song.singer, contextAction: contextAction)
         }
