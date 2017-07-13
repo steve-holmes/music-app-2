@@ -40,7 +40,7 @@ extension HomePlaylistCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var identifier = String(describing: PlaylistItemCell.self)
+        var identifier = String(describing: HomePlaylistItemCell.self)
         
         if indexPath.item == 0 {
             identifier = "Large\(identifier)"

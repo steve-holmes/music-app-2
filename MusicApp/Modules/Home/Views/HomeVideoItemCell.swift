@@ -21,6 +21,19 @@ class HomeVideoItemCell: UICollectionViewCell {
         layer.cornerRadius = 7
     }
     
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        
+        let shadowLayer = CAGradientLayer()
+        shadowLayer.frame = shadowView.layer.bounds
+        shadowLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        shadowLayer.locations = [0.0, 1.0]
+        shadowLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
+        shadowLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        
+        shadowView.layer.addSublayer(shadowLayer)
+    }
+    
     override func prepareForReuse() {
         nameLabel.text = ""
         singerLabel.text = ""

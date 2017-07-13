@@ -149,7 +149,7 @@
                                                             <inset key="scrollIndicatorInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                                             <collectionViewLayout key="collectionViewLayout" id="ZUp-2A-tr7" customClass="HomePlaylistCollectionViewLayout" customModule="MusicApp" customModuleProvider="target"/>
                                                             <cells>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PlaylistItemCell" id="fFC-cI-gGI" customClass="PlaylistItemCell" customModule="MusicApp" customModuleProvider="target">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="HomePlaylistItemCell" id="fFC-cI-gGI" customClass="HomePlaylistItemCell" customModule="MusicApp" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="43" width="114" height="114"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -164,7 +164,6 @@
                                                                                 <subviews>
                                                                                     <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYg-ML-ba7">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="114" height="34"/>
-                                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mxV-Jy-p7M">
                                                                                         <rect key="frame" x="2" y="0.0" width="110" height="18"/>
@@ -208,10 +207,11 @@
                                                                     <connections>
                                                                         <outlet property="imageView" destination="92D-RB-wJO" id="14N-Ii-AzD"/>
                                                                         <outlet property="nameLabel" destination="mxV-Jy-p7M" id="M4R-tb-gfb"/>
+                                                                        <outlet property="shadowView" destination="dYg-ML-ba7" id="UoA-GP-m2K"/>
                                                                         <outlet property="singerLabel" destination="Pfr-Ra-BUF" id="b9y-d4-PbC"/>
                                                                     </connections>
                                                                 </collectionViewCell>
-                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LargePlaylistItemCell" id="6SN-FH-k8M" customClass="PlaylistItemCell" customModule="MusicApp" customModuleProvider="target">
+                                                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LargeHomePlaylistItemCell" id="6SN-FH-k8M" customClass="HomePlaylistItemCell" customModule="MusicApp" customModuleProvider="target">
                                                                     <rect key="frame" x="124" y="0.0" width="200" height="200"/>
                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -226,7 +226,6 @@
                                                                                 <subviews>
                                                                                     <view alpha="0.64999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gIl-6h-uYp">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="200" height="48"/>
-                                                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                     </view>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Playlist name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nC8-os-0ft">
                                                                                         <rect key="frame" x="8" y="1" width="184" height="24"/>
@@ -270,6 +269,7 @@
                                                                     <connections>
                                                                         <outlet property="imageView" destination="N90-9O-0bu" id="HIM-aT-uPq"/>
                                                                         <outlet property="nameLabel" destination="nC8-os-0ft" id="Y7a-as-Vlv"/>
+                                                                        <outlet property="shadowView" destination="gIl-6h-uYp" id="D2E-lr-gN6"/>
                                                                         <outlet property="singerLabel" destination="J7t-5x-yVf" id="WMm-R3-PWU"/>
                                                                     </connections>
                                                                 </collectionViewCell>
