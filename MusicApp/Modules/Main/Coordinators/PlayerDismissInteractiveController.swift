@@ -64,7 +64,7 @@ extension PlayerDismissInteractiveController {
             onBegan(panGesture)
         case .changed:
             onChanged(panGesture)
-        case .cancelled:
+        case .cancelled, .failed:
             onCancelled(panGesture)
         case .ended:
             onEnded(panGesture)
